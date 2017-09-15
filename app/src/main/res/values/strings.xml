@@ -1,0 +1,219 @@
+<resources>
+    <string name="app_name">大树英杰</string>
+    <string name="dashubio_health_management_system">大树·英杰健康管理系统</string>
+    <string name="title">很多人周围都有高血压的患者，因此多关注如何治疗是很正常的事。最近，网上有个流传很广的“根治高血压”的方法</string>
+    <string name="version_name">1.0.0</string>
+    <string name="can_not_find_version_name">找不到版本名称</string>
+
+    <string name="back">返回</string>
+    <string name="quit">退出</string>
+
+    <string name="being_measured_please_wait">正在测量，请稍后</string>
+    <string name="being_measured">正在测量</string>
+
+    <string name="pull_to_load">加载更多···</string>
+    <string name="release_to_load">加载完成</string>
+
+    <string name="camera_open_error">打开相机失败</string>
+    <string name="loading">正在加载请稍后!!!</string>
+    <string name="photo_too_lage">图片太大！</string>
+    <string name="no_sdcard">无sdcard！</string>
+    <string name="takephoto_fail">拍照失败</string>
+
+    <string name="paired">配对</string>
+    <string name="select_device">搜索设备</string>
+    <string name="no_ble_devices">无蓝牙设备</string>
+
+    <string name="please_connect_the_device_first">请先连接设备</string>
+    <string name="please_select_detect_item">请选择检测项目</string>
+    <string name="no_ecg_module">没有心电模块</string>
+
+    <string name="blood_pressure">血压</string>
+    <string name="blood_sugar">血糖</string>
+    <string name="oxygen">血氧：</string>
+    <string name="heart_rate">心率</string>
+    <string name="body_temperature">体温</string>
+    <string name="ECG">心电</string>
+    <string name="no">无</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="leaving_message_person">留言人</string>
+    <string name="please_enter_leaving_message_content">请输入留言内容</string>
+
+    <string name="wait_a_moment">请稍候</string>
+    <string name="successful_operation">操作成功</string>
+    <string name="register_success_please_wait_for_background_audit">注册成功，请等待后台审核</string>
+    <string name="operation_failed">操作失败</string>
+    <string name="please_input_username">请输入用户名</string>
+    <string name="please_enter_the_serial_number_of_equipment">请输入设备串号</string>
+    <string name="input_reg_telphone">请输入手机号码</string>
+    <string name="please_input_password">请输入密码</string>
+    <string name="maximum_of_pwd_num">输入6~30位字母或数字</string>
+    <string name="confirm_password_error">确认密码错误</string>
+    <string name="please_input_verification_code">请输入验证码</string>
+
+    <string name="please_enter_company_name">请输入单位名称</string>
+    <string name="please_enter_contact">请输入联系人</string>
+    <string name="please_enter_contact_phone">请输入联系人电话</string>
+    <string name="please_select_area">请选择所在地区</string>
+    <string name="please_enter_detail_address">请输入详细地址</string>
+
+    <string name="network_exception_please_try_again_later">网络异常，请稍后再试！</string>
+    <string name="connection_timeout_or_illegal_request">连接超时，或非法请求</string>
+    <string name="parameter_error">参数错误</string>
+    <string name="parameter_commit_failed">参数提交失败</string>
+    <string name="data_empty">数据为空</string>
+    <string name="userid_cannot_empty">用户id不可为空</string>
+    <string name="company_name_cannot_empty">公司名称不可为空</string>
+    <string name="username_cannot_empty">用户姓名不可为空</string>
+    <string name="contact_phone_cannot_empty">联系电话不可为空</string>
+    <string name="province_cannot_empty">省份不可为空</string>
+    <string name="city_cannot_empty">城市不可为空</string>
+    <string name="detail_address_cannot_empty">详细地址不可为空</string>
+    <string name="format_error">格式错误</string>
+    <string name="device_has_been_registered">设备已注册</string>
+    <string name="device_name_not_valid">设备名不合法</string>
+    <string name="phone_has_been_occupied">手机号已被占用</string>
+    <string name="password_length_not_valid">密码长度不合法</string>
+    <string name="phone_not_legal">手机号不合法</string>
+    <string name="sms_verification_code_error">短信验证码错误</string>
+    <string name="user_not_exist">用户不存在</string>
+    <string name="password_error">密码错误</string>
+    <string name="user_id_card_has_been_registered">用户身份证已注册</string>
+    <string name="user_id_card_cannot_empty">用户身份证不可为空</string>
+    <string name="user_gender_cannot_empty">用户性别不可为空</string>
+    <string name="phone_cannot_empty">电话不可为空</string>
+    <string name="user_nation_cannot_empty">民族不可为空</string>
+    <string name="user_birthday_cannot_empty">出生日期不能为空</string>
+    <string name="user_address_cannot_empty">地址不能为空</string>
+
+    <string name="region">所在地区</string>
+
+    <string name="please_enter_your_id_number">请输入身份证号码</string>
+    <string name="please_enter_phone">请输入电话</string>
+    <string name="please_enter_name">请输入姓名</string>
+    <string name="please_enter_work_unit">请输入工作单位</string>
+    <string name="please_enter_address">请输入地址</string>
+
+    <string name="sdcard_no_use">SD卡不可用或可用空间太小！</string>
+    <string name="cameraPickerNotFoundText">无法启动相机</string>
+
+    <string name="bluetooth_not_available">蓝牙不可用</string>
+    <string name="ble_not_supported">该设备不支持低功耗蓝牙</string>
+
+
+    <string name="register">注册</string>
+    <string name="user_info">用户信息</string>
+    <string name="manual_register">手动注册</string>
+    <string name="use_register">用户注册</string>
+    <string name="use_login">用户登录</string>
+    <string name="use_manager">用户管理</string>
+    <string name="early_warning_setting">预警设置</string>
+    <string name="use_help">使用帮助</string>
+    <string name="user_not_exist_please_register_first">用户不存在，请先注册</string>
+    <string name="camera_card">请将身份证放置在摄像头区域，识别信息后自动登录</string>
+
+    <string name="full_name">姓名</string>
+    <string name="gender">性别</string>
+    <string name="folk">民族</string>
+    <string name="birth">出生</string>
+    <string name="area">地区</string>
+    <string name="address">地址</string>
+    <string name="id_number">身份证号</string>
+    <string name="phone_number">手机号码</string>
+    <string name="Frequent_contacts">常用联系人</string>
+
+    <string name="choice_nation">选择民族</string>
+
+    <string name="name">名称</string>
+    <string name="time">时间</string>
+
+    <string name="home_page">首页</string>
+
+    <string name="start_measuring">开始测量</string>
+    <string name="stop_measuring">停止测量</string>
+    <string name="historical_data">历史数据</string>
+    <string name="health_report">健康报告</string>
+    <string name="health_file">健康档案</string>
+    <string name="health_warning">健康预警</string>
+
+    <string name="select_measurement_items">选择测量项目</string>
+    <string name="health_instrument">健康检查仪</string>
+    <string name="non_health_instrument_device">非健康检查仪设备</string>
+    <string name="click_to_connect_device">点击连接设备</string>
+    <string name="connect_device_get_data">连接设备获取数据</string>
+    <string name="dry_biochemical_analyzer">干式生化仪</string>
+    <string name="non_dry_biochemical_analyzer_device">非干式生化仪设备</string>
+    <string name="dry_biochemical_analyzer_measured_data">干式生化仪测量数据</string>
+    <string name="non_urine_analyzer_device">非尿液分析仪设备</string>
+    <string name="urine_analyzer_measured_data">尿液分析仪测量数据</string>
+    <string name="dry_analyzer_measured_data">干式生化仪测量数据</string>
+
+    <string name="blood_oxygen_test_timeout">血氧测试超时</string>
+
+    <string name="user_list">用户列表</string>
+    <string name="enter_query_char">请输入文字查询</string>
+    <string name="search">搜索</string>
+
+    <string name="save">保  存</string>
+    <string name="cancel">取  消</string>
+    <string name="ok">确定</string>
+
+    <string name="view">查看</string>
+
+    <string name="pr_max">RR最大值：</string>
+    <string name="pr_min">RR最小值：</string>
+    <string name="heart_rate_colon">心率：</string>
+    <string name="heart_rate_variability">心率变异性：</string>
+    <string name="mood">心情：</string>
+    <string name="breathing_rate">呼吸：</string>
+
+    <string name="check_list">检查单</string>
+
+    <string name="unexpected">Unexpected : </string>
+
+    <string name="year">年</string>
+    <string name="month">月</string>
+
+    <string name="nothing">无</string>
+    <string name="multi_parameter_monitor">多参数监测仪</string>
+    <string name="health_deceive">健康检测仪</string>
+    <string name="measurement_data">测量数据：心率、脉搏、收缩压差、收缩压、舒张压、平均压、血氧、呼吸、st数值</string>
+    <string name="measurement_data_health">测量数据：心电、血压、血氧、体温、心率</string>
+    <string name="urine_detector_measurement_data">测量数据：尿胆原、胆红素、酮体、蛋白质、白细胞、尿葡萄糖、尿比重、PH值、尿隐血、亚硝酸盐、抗坏血酸</string>
+    <string name="dry_biochemical_analyzer_measurement_data">测量数据：血脂四项、血糖、尿酸、谷丙转氨酶、血红蛋白</string>
+    <string name="respiratory_monitor_measurement_data">测量数据：Pef、FVC、FEV1</string>
+    <string name="synchronize_data">开始同步数据</string>
+    <string name="urine_detector">尿液检测仪</string>
+    <string name="respiratory_monitor">呼吸监控器</string>
+    <string name="pulse">脉搏：</string>
+    <string name="systolic_blood_pressure_difference">收缩压差：</string>
+    <string name="systolic_blood_pressure">收缩压：</string>
+    <string name="diastolic_blood_pressure">舒张压：</string>
+    <string name="the_average_pressure">平均压：</string>
+    <string name="ST_segment_numerical">ST段数值：</string>
+    <string name="hint_tv_IMEI">IMEI号</string>
+    <string name="hint_input_IMEI">请输入IMEI号</string>
+    <string name="hint_updateprogram">当前的设备版本过旧,稍后需要更新程序...</string>
+    <string name="ble_hint_operation">请操作</string>
+    <string name="hint_data">数据显示如下:</string>
+    <string name="hint_data_null">数据未读取</string>
+
+    <string name="ble_search">搜索设备</string>
+    <string name="ble_connect">连接设备</string>
+    <string name="ble_state_match">已配对</string>
+    <string name="ble_state_disconnect">未连接</string>
+    <string name="ble_state_disconnect_operation">断开连接</string>
+    <string name="ble_state_connect">已连接</string>
+    <string name="ble_state_transmission">传输中</string>
+    <string name="ble_state_ble_open">请打开蓝牙</string>
+    <string name="ble_judgement_notsupport">手机不支持蓝牙</string>
+    <string name="text_content">PEF(最大呼气流量)为个人预计值的_，属于_范围；FEV1(一秒用力呼气容积)和FVC(用力肺活量)反应气流受限程度为正常</string>
+    <string name="text_content_second">基于舒张压后的FEV1值判断，在FEV1/FVC&lt;70%的情况下</string>
+    <string name="ecg">心电</string>
+    <string name="blood_oxygen">血氧</string>
+    <string name="leak_and_check">存在漏气，请检查气路，重新测量。</string>
+    <string name="measurement_void">测量过程中请保持安静，此次测量作废，请重新测量。</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

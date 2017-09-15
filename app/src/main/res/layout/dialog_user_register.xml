@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:paddingBottom="@dimen/px30">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:fillViewport="true">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/px35"
+                android:text="@string/user_info"
+                android:textColor="@color/black"
+                android:textSize="@dimen/px40" />
+
+            <View style="@style/ViewLineStyleSecond" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/lay_dialog_name"
+                style="@style/ReisterDialogLayout">
+
+                <TextView
+                    style="@style/ReisterDialogTextIntroduce"
+                    android:drawableRight="@drawable/ic_star"
+                    android:text="@string/full_name" />
+
+                <EditText
+                    android:id="@+id/dialog_tv_user_name"
+                    style="@style/ReisterDialogTextContext"
+                    android:hint="@string/name" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View style="@style/ViewLineStyleSecond" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/lay_dialog_sex"
+                style="@style/ReisterDialogLayout">
+
+                <TextView
+                    style="@style/ReisterDialogTextIntroduce"
+                    android:text="@string/gender" />
+
+                <TextView
+                    android:id="@+id/dialog_tv_user_sex"
+                    style="@style/ReisterDialogTextContext"
+                    android:hint="@string/gender" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View style="@style/ViewLineStyleSecond" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/lay_dialog_folk"
+                style="@style/ReisterDialogLayout">
+
+                <TextView
+                    style="@style/ReisterDialogTextIntroduce"
+                    android:text="@string/folk" />
+
+                <TextView
+                    android:id="@+id/dialog_tv_user_folk"
+                    style="@style/ReisterDialogTextContext"
+                    android:hint="@string/folk" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View style="@style/ViewLineStyleSecond" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/lay_dialog_birth"
+                style="@style/ReisterDialogLayout">
+
+                <TextView
+                    style="@style/ReisterDialogTextIntroduce"
+                    android:text="@string/birth" />
+
+                <TextView
+                    android:id="@+id/dialog_tv_user_birth"
+                    style="@style/ReisterDialogTextContext"
+                    android:hint="@string/birth" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <View style="@style/ViewLineStyleSecond" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/lay_dialog_area"
+                style="@style/ReisterDialogLayout">
+
+                <TextView
+                    style="@style/ReisterDialogTextIntroduce"
+                    android:text="@string/area" />
+
+                <Spinner
+                    android:id="@+id/tv_province"
+                    style="@style/CitySelTextViewStyle" />
+
+                <Spinner
+                    android:id="@+id/tv_city"
+                    style="@style/CitySelTextViewStyle" />
+
+                <Spinner
+                    android:id="@+id/tv_district"
+                    style="@style/CitySelTextViewStyle" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <View style="@style/ViewLineStyleSecond" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/lay_dialog_address"
+                style="@style/ReisterDialogLayout">
+
+                <TextView
+                    style="@style/ReisterDialogTextIntroduce"
+                    android:text="@string/address" />
+
+                <EditText
+                    android:id="@+id/dialog_tv_user_address"
+                    style="@style/ReisterDialogTextContext"
+                    android:hint="@string/address" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View style="@style/ViewLineStyleSecond" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/lay_dialog_card_id"
+                style="@style/ReisterDialogLayout">
+
+                <TextView
+                    style="@style/ReisterDialogTextIntroduce"
+                    android:drawableRight="@drawable/ic_star"
+                    android:text="@string/id_number" />
+
+                <EditText
+                    android:id="@+id/dialog_tv_user_id_number"
+                    style="@style/ReisterDialogTextContext"
+                    android:digits="0123456789Xx"
+                    android:hint="@string/id_number" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <View style="@style/ViewLineStyleSecond" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/lay_dialog_phone"
+                style="@style/ReisterDialogLayout">
+
+                <TextView
+                    style="@style/ReisterDialogTextIntroduce"
+                    android:drawableRight="@drawable/ic_star"
+                    android:text="@string/phone_number" />
+
+                <EditText
+                    android:id="@+id/dialog_tv_user_phone_number"
+                    style="@style/ReisterDialogTextContext"
+                    android:digits="0123456789Xx"
+                    android:hint="@string/phone_number" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <View style="@style/ViewLineStyleSecond" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/lay_dialog_mphone"
+                style="@style/ReisterDialogLayout">
+
+                <TextView
+                    style="@style/ReisterDialogTextIntroduce"
+                    android:text="@string/Frequent_contacts" />
+
+                <EditText
+                    android:id="@+id/dialog_tv_user_Frequent_contacts"
+                    style="@style/ReisterDialogTextContext"
+                    android:digits="0123456789Xx"
+                    android:hint="@string/phone_number" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View style="@style/ViewLineStyleSecond" />
+
+            <View android:id="@+id/my_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px410"
+                android:visibility="gone"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px30"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px100"
+                    android:layout_marginLeft="@dimen/px50"
+                    android:layout_marginRight="@dimen/px30"
+                    android:layout_weight="1"
+                    android:background="@drawable/ucenter_button"
+                    android:text="@string/register" />
+
+                <Button
+                    android:id="@+id/btn_cancle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px100"
+                    android:layout_marginLeft="@dimen/px30"
+                    android:layout_marginRight="@dimen/px50"
+                    android:layout_weight="1"
+                    android:background="@drawable/ucenter_button_cancel"
+                    android:text="@string/cancel" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+</com.zhy.autolayout.AutoRelativeLayout>

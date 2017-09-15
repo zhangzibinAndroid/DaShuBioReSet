@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="蓝牙扫描中..."
+        android:textSize="@dimen/px38"
+        android:padding="@dimen/px20"
+        android:gravity="center"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px01"
+        android:background="@color/line_view"/>
+
+    <ListView android:id="@+id/lv_blue_scan"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px700"/>
+
+</com.zhy.autolayout.AutoLinearLayout>

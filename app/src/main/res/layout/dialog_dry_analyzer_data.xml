@@ -1,0 +1,102 @@
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E5E5E5"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/topContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/px14"
+            android:paddingTop="@dimen/px32"
+            android:text="@string/dry_analyzer_measured_data"
+            android:textColor="@android:color/background_dark"
+            android:textSize="@dimen/px40" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px02"
+            android:layout_gravity="bottom"
+            android:background="#F9AF70" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/dateTimeTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="@dimen/px14"
+                android:paddingTop="@dimen/px32"
+                android:paddingLeft="@dimen/px20"
+                android:textColor="@android:color/background_dark"
+                android:textSize="@dimen/px35" />
+
+            <TextView
+                android:id="@+id/deviceNumberTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingBottom="@dimen/px14"
+                android:paddingTop="@dimen/px32"
+                android:textColor="@android:color/background_dark"
+                android:textSize="@dimen/px35" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rcv_ganshi_data"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px700"
+        android:padding="@dimen/px20"
+        android:layout_weight="1"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/px30"
+        android:layout_marginLeft="@dimen/px40"
+        android:layout_marginRight="@dimen/px40"
+        android:layout_marginTop="@dimen/px30"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
+            android:background="@drawable/ucenter_button"
+            android:focusable="true"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px40" />
+
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginLeft="@dimen/px40"
+            android:layout_weight="1"
+            android:background="@drawable/ucenter_button_cancel"
+            android:focusable="true"
+            android:text="@string/cancel"
+            android:textColor="@color/black"
+            android:textSize="@dimen/px40" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+</com.zhy.autolayout.AutoLinearLayout>

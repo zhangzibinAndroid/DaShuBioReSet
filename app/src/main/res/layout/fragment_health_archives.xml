@@ -1,0 +1,689 @@
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/px40"
+    android:paddingLeft="@dimen/px20"
+    android:paddingRight="@dimen/px20"
+    android:paddingTop="@dimen/px40">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/lv_bg"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px400"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/img_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/px20"
+                    android:layout_marginLeft="@dimen/px40"
+                    android:layout_marginRight="@dimen/px30"
+                    android:layout_marginTop="@dimen/px20"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_empty" />
+
+                <Button
+                    android:id="@+id/btn_camera"
+                    android:layout_width="@dimen/px70"
+                    android:layout_height="@dimen/px100"
+                    android:layout_marginRight="@dimen/px30"
+                    android:background="@drawable/register_btn_bg"
+                    android:text="拍照"
+                    android:textColor="@color/white" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/px30"
+                android:background="#66669A"
+                android:paddingBottom="@dimen/px20"
+                android:paddingLeft="@dimen/px10"
+                android:paddingTop="@dimen/px20"
+                android:text="个人基本简历"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px30" />
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="姓名：" />
+
+                <EditText
+                    android:id="@+id/edt_name"
+                    style="@style/healthArchivsEdtextStyle"
+                    android:hint="@string/please_enter_name" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="性别：" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_man"
+                        android:layout_width="@dimen/px30"
+                        android:layout_height="@dimen/px70"
+                        android:background="@drawable/textbg_shape_border_left_all"
+                        android:gravity="center"
+                        android:padding="@dimen/px10"
+                        android:text="男"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/px30" />
+
+                    <TextView
+                        android:id="@+id/tv_woman"
+                        android:layout_width="@dimen/px30"
+                        android:layout_height="@dimen/px70"
+                        android:background="@drawable/textbg_shape_border_right"
+                        android:gravity="center"
+                        android:text="女"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/px30" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="出生日期：" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    style="@style/healthArchivsEdtextStyle"
+                    android:hint="点击选择出生日期" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="名族：" />
+
+                <Spinner
+                    android:id="@+id/sp_folk"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="身份证号码：" />
+
+                <EditText
+                    android:id="@+id/edt_card_id"
+                    style="@style/healthArchivsEdtextStyle"
+                    android:hint="@string/please_enter_your_id_number" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="地区：" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/px50"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/sp_province"
+                        style="@style/CitySelTextViewStyle" />
+
+                    <Spinner
+                        android:id="@+id/sp_city"
+                        style="@style/CitySelTextViewStyle" />
+
+                    <Spinner
+                        android:id="@+id/sp_district"
+                        style="@style/CitySelTextViewStyle" />
+
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="常驻类型：" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_household_registration"
+                        android:layout_width="@dimen/px45"
+                        android:layout_height="@dimen/px70"
+                        android:background="@drawable/textbg_shape_border_left_all"
+                        android:gravity="center"
+                        android:padding="@dimen/px10"
+                        android:text="户籍"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/px30" />
+
+                    <TextView
+                        android:id="@+id/tv_unhousehold_registration"
+                        android:layout_width="@dimen/px45"
+                        android:layout_height="@dimen/px70"
+                        android:background="@drawable/textbg_shape_border_right"
+                        android:gravity="center"
+                        android:text="非户籍"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/px30" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="地址：" />
+
+                <EditText
+                    android:id="@+id/edt_address"
+                    style="@style/healthArchivsEdtextStyle"
+                    android:hint="请输入地址" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="工作单位：" />
+
+                <EditText
+                    android:id="@+id/edt_company"
+                    style="@style/healthArchivsEdtextStyle"
+                    android:hint="@string/please_enter_work_unit" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="本人电话：" />
+
+                <EditText
+                    android:id="@+id/edt_my_phone"
+                    style="@style/healthArchivsEdtextStyle"
+                    android:hint="@string/please_enter_phone" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="常用联系人电话：" />
+
+                <EditText
+                    android:id="@+id/edt_friend_phone"
+                    style="@style/healthArchivsEdtextStyle"
+                    android:hint="@string/please_enter_phone" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="血型：" />
+
+                <Spinner
+                    android:id="@+id/sp_blood_type"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="RH阴性：" />
+
+                <Spinner
+                    android:id="@+id/sp_rh"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="文化程度：" />
+
+                <Spinner
+                    android:id="@+id/sp_education_degree"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="职业：" />
+
+                <Spinner
+                    android:id="@+id/sp_profession"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="婚姻状态：" />
+
+                <Spinner
+                    android:id="@+id/sp_marriage"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/px30"
+                android:background="#66669A"
+                android:paddingBottom="@dimen/px20"
+                android:paddingLeft="@dimen/px10"
+                android:paddingTop="@dimen/px20"
+                android:text="个人基本健康信息"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px30" />
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="医疗费用支付方式：" />
+
+                <Spinner
+                    android:id="@+id/sp_pay_style"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="药物过敏史：" />
+
+                <Spinner
+                    android:id="@+id/sp_medicine"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="暴露史：" />
+
+                <Spinner
+                    android:id="@+id/sp_expose"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyleAdd">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="既往史：    疾病：" />
+
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyView_disease"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/gray_circle" />
+
+                    <ImageButton
+                        android:id="@+id/imgBtn_add"
+                        style="@style/healthArchivsImageButton" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/lay_surgery"
+                style="@style/healthArchivsLayoutStyleAdd">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="手术：" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ListView
+                        android:id="@+id/lv_surgery"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:cacheColorHint="#FFF4F4F4"
+                        android:divider="@null"
+                        android:dividerHeight="0.0dip"
+                        android:fadingEdge="none" />
+
+                    <ImageButton
+                        android:id="@+id/imgBtn_add_surgery"
+                        style="@style/healthArchivsImageButton" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyleAdd">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="外伤：" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ListView
+                        android:id="@+id/lv_trauma"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:cacheColorHint="#FFF4F4F4"
+                        android:divider="@null"
+                        android:dividerHeight="0.0dip"
+                        android:fadingEdge="none" />
+
+                    <ImageButton
+                        android:id="@+id/imgBtn_add_trauma"
+                        style="@style/healthArchivsImageButton" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyleAdd">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="输血：" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ListView
+                        android:id="@+id/lv_blood_transfusion"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:cacheColorHint="#FFF4F4F4"
+                        android:divider="@null"
+                        android:dividerHeight="0.0dip"
+                        android:fadingEdge="none" />
+
+                    <ImageButton
+                        android:id="@+id/imgBtn_add_blood_transfusion"
+                        style="@style/healthArchivsImageButton" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/px10"
+                android:text="家族史："
+                android:textColor="@color/black"
+                android:textSize="@dimen/px30" />
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyleAdd">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="父亲：" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyView_father"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/gray_circle" />
+
+
+                    <ImageButton
+                        android:id="@+id/imgBtn_add_father"
+                        style="@style/healthArchivsImageButton" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyleAdd">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="母亲：" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyView_mother"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/gray_circle" />
+
+
+                    <ImageButton
+                        android:id="@+id/imgBtn_add_mother"
+                        style="@style/healthArchivsImageButton" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyleAdd">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="子女：" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyView_children"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/gray_circle" />
+
+
+                    <ImageButton
+                        android:id="@+id/imgBtn_add_children"
+                        style="@style/healthArchivsImageButton" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="遗传病史：" />
+
+                <EditText
+                    android:id="@+id/et_genetic_history"
+                    style="@style/healthArchivsEdtextStyle"
+                    android:hint="请输入遗传病史" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="残疾情况：" />
+
+                <Spinner
+                    android:id="@+id/sp_canji"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/px30"
+                android:background="#66669A"
+                android:paddingBottom="@dimen/px20"
+                android:paddingLeft="@dimen/px10"
+                android:paddingTop="@dimen/px20"
+                android:text="个人生活环境"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px30" />
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="厨房排风设施：" />
+
+                <Spinner
+                    android:id="@+id/sp_exhaust"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="燃料类型：" />
+
+                <Spinner
+                    android:id="@+id/sp_fuel"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="饮水：" />
+
+                <Spinner
+                    android:id="@+id/sp_water"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="厕所：" />
+
+                <Spinner
+                    android:id="@+id/sp_wc"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout style="@style/healthArchivsLayoutStyle">
+
+                <TextView
+                    style="@style/healthArchivsTextIntroduceStyle"
+                    android:text="禽畜栏：" />
+
+                <Spinner
+                    android:id="@+id/sp_qcl"
+                    style="@style/healthArchivsEdtextStyle" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="@dimen/px70"
+                android:layout_height="@dimen/px100"
+                android:layout_gravity="right"
+                android:layout_marginBottom="@dimen/px30"
+                android:layout_marginRight="@dimen/px30"
+                android:background="@drawable/blue_bg"
+                android:text="保存"
+                android:textColor="@color/white" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+
+</com.zhy.autolayout.AutoLinearLayout>

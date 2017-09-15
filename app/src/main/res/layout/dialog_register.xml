@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="@dimen/px340"
+                android:layout_height="@dimen/px1100">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="@dimen/px340"
+                    android:layout_height="@dimen/px1100"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/white"
+                    android:layout_marginLeft="@dimen/px30"
+                    android:layout_marginTop="@dimen/px60"
+                    android:padding="@dimen/px30"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+
+                    <TextView
+                        android:id="@+id/tv_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/px100"
+                        android:text="大树·英杰"
+                        android:textColor="#029DAF"
+                        android:textSize="@dimen/px60"
+                        android:drawableLeft="@drawable/ic_icon"
+                        android:drawablePadding="@dimen/px20"
+                        android:gravity="center" />
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/px40"
+                        android:orientation="vertical" >
+
+                        <EditText
+                            android:id="@+id/et_imei"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px90"
+                            android:background="@color/blue"
+                            android:gravity="left|center"
+                            android:hint="@string/please_enter_the_serial_number_of_equipment"
+                            android:paddingLeft="@dimen/px20"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px32" />
+
+                        <EditText
+                            android:id="@+id/et_phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px90"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/blue"
+                            android:gravity="left|center"
+                            android:hint="请输入手机号码"
+                            android:inputType="phone"
+                            android:digits="1234567890"
+                            android:paddingLeft="@dimen/px20"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px32" />
+
+                        <EditText
+                            android:id="@+id/et_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px90"
+                            android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                            android:layout_marginTop="@dimen/px20"
+                            android:background="@color/blue"
+                            android:gravity="left|center"
+                            android:hint="@string/maximum_of_pwd_num"
+                            android:minEms="6"
+                            android:maxLength="30"
+                            android:inputType="textPassword"
+                            android:paddingLeft="@dimen/px20"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px32" />
+
+                        <EditText
+                            android:id="@+id/et_password_again"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px90"
+                            android:layout_marginTop="@dimen/px20"
+                            android:background="@color/blue"
+                            android:gravity="left|center"
+                            android:hint="请再次输入密码"
+                            android:inputType="textPassword"
+                            android:paddingLeft="@dimen/px20"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px32" />
+
+                        <com.zhy.autolayout.AutoRelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/px20" >
+
+                            <Button
+                                android:id="@+id/btn_code"
+                                android:layout_width="@dimen/px90"
+                                android:layout_height="@dimen/px90"
+                                android:text="获取验证码"
+                                android:layout_alignParentRight="true"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/px32"
+                                android:background="@color/blue_dep"
+                                android:paddingLeft="@dimen/px10"
+                                android:paddingRight="@dimen/px10" />
+
+                            <EditText
+                                android:id="@+id/et_code"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/px90"
+                                android:layout_alignParentLeft="true"
+                                android:layout_toLeftOf="@+id/btn_code"
+                                android:background="@drawable/blue_dep_cricle"
+                                android:paddingLeft="@dimen/px20"
+                                android:paddingRight="@dimen/px20"
+                                android:hint="@string/please_input_verification_code"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/px32" />
+
+                        </com.zhy.autolayout.AutoRelativeLayout>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_reg"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px90"
+                        android:layout_marginTop="@dimen/px50"
+                        android:background="@drawable/blue_dep_bg"
+                        android:text="注册"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/px32" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <ImageView
+                    android:id="@+id/cancle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/px08"
+                    android:layout_marginRight="@dimen/px04"
+                    android:src="@drawable/close" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+
+
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

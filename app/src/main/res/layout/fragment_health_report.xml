@@ -1,0 +1,90 @@
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xrefreshview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/lay_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/px20"
+            android:paddingLeft="@dimen/px15"
+            android:paddingRight="@dimen/px15"
+            android:paddingTop="@dimen/px20">
+
+            <TextView
+                android:id="@+id/tv_single"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px90"
+                android:layout_weight="1"
+                android:background="@drawable/textbg_shape_border_left_all"
+                android:gravity="center"
+                android:paddingBottom="@dimen/px20"
+                android:paddingTop="@dimen/px20"
+                android:text="单项"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px30" />
+
+            <TextView
+                android:id="@+id/tv_comprehensive"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px90"
+                android:layout_weight="1"
+                android:background="@drawable/textbg_shape_border_right"
+                android:gravity="center"
+                android:paddingBottom="@dimen/px20"
+                android:paddingTop="@dimen/px20"
+                android:text="综合"
+                android:textColor="@color/black"
+                android:textSize="@dimen/px30" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.andview.refreshview.XRefreshView
+            android:id="@+id/xrefresh_health_report"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/px15"
+            android:layout_marginRight="@dimen/px15"
+            android:background="@color/lv_bg"
+            android:orientation="vertical"
+            xrefreshview:isHeightMatchParent="true"
+            xrefreshview:isWidthMatchParent="true">
+
+            <ExpandableListView
+                android:id="@+id/lv_health_report"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@null"
+                android:dividerHeight="0dp" />
+
+        </com.andview.refreshview.XRefreshView>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/lay_web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ProgressBar android:id="@+id/myProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px05"
+            style="?android:attr/progressBarStyleHorizontal"/>
+
+        <WebView android:id="@+id/myWebView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+</com.zhy.autolayout.AutoLinearLayout>

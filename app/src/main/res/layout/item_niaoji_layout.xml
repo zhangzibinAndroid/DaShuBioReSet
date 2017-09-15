@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/px20"
+    android:paddingLeft="@dimen/px05"
+    android:paddingRight="@dimen/px05"
+    android:paddingTop="@dimen/px20">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/dialog_bc_tv_item"
+                android:text="尿胆原（URO）" />
+
+            <TextView
+                android:id="@+id/tv_unit_uro"
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px20" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/dialog_bc_tv_item"
+                android:text="胆红素（BIL）" />
+
+            <TextView
+                android:id="@+id/tv_unit_bil"
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px20" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/dialog_bc_tv_item"
+                android:text="葡萄糖（GLU）" />
+
+            <TextView
+                android:id="@+id/tv_unit_glu"
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px20" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/dialog_bc_tv_item"
+                android:text="PH值" />
+
+            <TextView
+                android:id="@+id/tv_unit_ph"
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px20" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/dialog_bc_tv_item"
+                android:text="白细胞（LEU）" />
+
+            <TextView
+                android:id="@+id/tv_unit_leu"
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px20" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/dialog_bc_tv_item"
+                android:text="维生素C（VC）" />
+
+            <TextView
+                android:id="@+id/tv_unit_vc"
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px20" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px35"
+                android:text="潜血（BLD）" />
+
+            <TextView
+                android:id="@+id/tv_unit_bld"
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px20" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px35"
+                android:text="酮体（KET）" />
+
+            <TextView
+                android:id="@+id/tv_unit_ket"
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px20" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px35"
+                android:text="蛋白质（PRO）" />
+
+            <TextView
+                android:id="@+id/tv_unit_pro"
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px20" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px35"
+                android:text="亚硝酸盐（NIT）" />
+
+            <TextView
+                android:id="@+id/tv_unit_nit"
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px20" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px35"
+                android:text="比重（SG）" />
+
+            <TextView
+                android:id="@+id/tv_unit_sg"
+                style="@style/dialog_bc_tv_item"
+                android:layout_marginLeft="@dimen/px20" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

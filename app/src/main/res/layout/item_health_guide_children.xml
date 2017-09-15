@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View style="@style/ViewLineStyleSecond"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px80">
+
+        <TextView android:id="@+id/tv_age"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="20"
+            android:textColor="@color/black"
+            android:textSize="@dimen/px32" />
+
+        <TextView android:id="@+id/tv_project_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="血氧"
+            android:textColor="@color/black"
+            android:textSize="@dimen/px32" />
+
+        <TextView android:id="@+id/tv_data"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="94.42"
+            android:textColor="@color/black"
+            android:textSize="@dimen/px32" />
+
+        <TextView android:id="@+id/tv_warning"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="血氧偏低"
+            android:textColor="@color/red"
+            android:textSize="@dimen/px32" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

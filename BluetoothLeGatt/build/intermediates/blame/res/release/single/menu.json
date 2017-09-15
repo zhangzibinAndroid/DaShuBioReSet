@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\release\\menu\\gatt_services.xml",
+        "source": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\src\\main\\res\\menu\\gatt_services.xml"
+    },
+    {
+        "merged": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\release\\menu\\main.xml",
+        "source": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\src\\main\\res\\menu\\main.xml"
+    }
+]

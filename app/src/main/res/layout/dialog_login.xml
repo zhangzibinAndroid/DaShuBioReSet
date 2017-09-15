@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="@dimen/px280"
+                android:layout_height="@dimen/px1100">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="280px"
+                    android:layout_height="1100px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/px60"
+                    android:layout_marginRight="@dimen/px15"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/px30">
+
+                    <TextView
+                        android:id="@+id/tv_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/px100"
+                        android:drawableLeft="@drawable/ic_icon"
+                        android:drawablePadding="@dimen/px20"
+                        android:gravity="center"
+                        android:text="大树·英杰"
+                        android:textColor="#029DAF"
+                        android:textSize="@dimen/px60" />
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/px80"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/et_account"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px90"
+                            android:background="@color/blue"
+                            android:gravity="left|center"
+                            android:hint="@string/please_input_username"
+                            android:paddingLeft="@dimen/px20"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px32" />
+
+                        <EditText
+                            android:id="@+id/et_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px90"
+                            android:layout_marginTop="@dimen/px40"
+                            android:background="@color/blue"
+                            android:gravity="left|center"
+                            android:hint="请输入密码"
+                            android:inputType="textPassword"
+                            android:paddingLeft="@dimen/px20"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px32" />
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px90"
+                        android:layout_marginTop="@dimen/px50"
+                        android:background="@drawable/gray_bg"
+                        android:text="登录"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/px32" />
+
+                    <Button
+                        android:id="@+id/btn_reg"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px90"
+                        android:layout_marginTop="@dimen/px120"
+                        android:background="@drawable/blue_dep_bg"
+                        android:text="注册"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/px32" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+               <ImageView
+                    android:id="@+id/cancle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/px05"
+                    android:src="@drawable/close" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

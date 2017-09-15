@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/px90"
+    android:paddingBottom="@dimen/px10"
+    android:gravity="center_vertical"
+    android:addStatesFromChildren="true"
+    android:descendantFocusability="blocksDescendants">
+
+    <ImageView
+        android:id="@+id/img_delect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/px10"
+        android:src="@drawable/ic_delect" />
+
+    <EditText
+        android:id="@+id/edt_name"
+        android:layout_width="@dimen/px125"
+        android:layout_height="@dimen/px65"
+        android:layout_marginLeft="@dimen/px10"
+        android:background="@drawable/gray_circle"
+        android:gravity="center_vertical"
+        android:hint="名称"
+        android:paddingLeft="@dimen/px10"
+        android:paddingRight="@dimen/px10"
+        android:textColor="@color/black"
+        android:textSize="@dimen/px30" />
+
+    <TextView android:id="@+id/tv_time_surger"
+        android:layout_width="@dimen/px125"
+        android:layout_height="@dimen/px65"
+        android:background="@drawable/gray_circle"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/px10"
+        android:hint="时间"
+        android:paddingLeft="@dimen/px10"
+        android:paddingRight="@dimen/px10"
+        android:textColor="@color/black"
+        android:textSize="@dimen/px30"/>
+
+
+</com.zhy.autolayout.AutoLinearLayout>

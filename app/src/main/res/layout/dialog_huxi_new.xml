@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/px40"
+    android:paddingLeft="@dimen/px40"
+    android:paddingRight="@dimen/px40">
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/lay_pef"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/green_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/px20">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PEF值"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px30" />
+
+            <TextView
+                android:id="@+id/tv_pef"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px20"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px70" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lay_pef"
+            android:layout_marginTop="@dimen/px30"
+            android:text="检测时间："
+            android:textSize="@dimen/px28" />
+
+
+        <TextView
+            android:id="@+id/tv_pef_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px50"
+            android:layout_toRightOf="@+id/lay_pef"
+            android:text="@string/text_content"
+            android:textSize="@dimen/px40" />
+
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View android:layout_width="match_parent"
+        android:layout_height="@dimen/px01"
+        android:background="@color/alertdialog_line"
+        android:layout_marginTop="@dimen/px30"/>
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="@dimen/px200"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px80"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_fev1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px50" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_fev1"
+                    android:layout_toRightOf="@+id/tv_fev1"
+                    android:text="FEV1"
+                    android:textSize="@dimen/px35" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+
+            <ProgressBar
+                android:id="@+id/pro_fev1_fev1"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="@dimen/px100"
+                android:layout_height="@dimen/px20"
+                android:max="100"
+                android:progressDrawable="@drawable/progress_style_green" />
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px20"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_fev1_fev1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0%"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px50" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_fev1_fev1"
+                    android:layout_toRightOf="@+id/tv_fev1_fev1"
+                    android:text="FEV1/FEV1预计值"
+                    android:textSize="@dimen/px35" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px80"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_fvc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px50" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_fvc"
+                    android:layout_toRightOf="@+id/tv_fvc"
+                    android:text="FVC"
+                    android:textSize="@dimen/px35" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+
+            <ProgressBar
+                android:id="@+id/pro_fev1_fevc"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="@dimen/px100"
+                android:layout_height="@dimen/px20"
+                android:max="100"
+                android:progressDrawable="@drawable/progress_style_green" />
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px20"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_fev1_fvc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0%"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px50" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_fev1_fvc"
+                    android:layout_toRightOf="@+id/tv_fev1_fvc"
+                    android:text="FEV1/FVC"
+                    android:textSize="@dimen/px35" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="@dimen/px200"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px30"
+                android:text="气流受限严重程度分级"
+                android:textColor="@color/black"
+                android:textSize="@dimen/px40" />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px30"
+                android:text="@string/text_content_second"
+                android:textSize="@dimen/px30" />
+
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/px20"
+                android:paddingLeft="@dimen/px05"
+                android:paddingRight="@dimen/px05"
+                android:paddingTop="@dimen/px20">
+
+                <View
+                    android:layout_width="@dimen/px23"
+                    android:layout_height="@dimen/px50"
+                    android:background="@color/green_bg" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px15"
+                    android:text="轻度：FEV1≥80%预计值"
+                    android:textSize="@dimen/px28" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/px20"
+                android:paddingLeft="@dimen/px05"
+                android:paddingRight="@dimen/px05"
+                android:paddingTop="@dimen/px20">
+
+                <View
+                    android:layout_width="@dimen/px23"
+                    android:layout_height="@dimen/px50"
+                    android:background="#F6E458" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px15"
+                    android:text="中度：50%≤FEV1&lt;80%预计值"
+                    android:textSize="@dimen/px28" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/px20"
+                android:paddingLeft="@dimen/px05"
+                android:paddingRight="@dimen/px05"
+                android:paddingTop="@dimen/px20">
+
+                <View
+                    android:layout_width="@dimen/px23"
+                    android:layout_height="@dimen/px50"
+                    android:background="#EEC731" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px15"
+                    android:text="重度：30%≤FEV1&lt;50%预计值"
+                    android:textSize="@dimen/px28" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/px20"
+                android:paddingLeft="@dimen/px05"
+                android:paddingRight="@dimen/px05"
+                android:paddingTop="@dimen/px20">
+
+                <View
+                    android:layout_width="@dimen/px23"
+                    android:layout_height="@dimen/px50"
+                    android:background="#FD7471" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px15"
+                    android:text="极重度：FEV1&lt;30%预计值"
+                    android:textSize="@dimen/px28" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View style="@style/ViewLineStyle"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/sel_btn_white"
+            android:text="@string/cancel"/>
+
+        <View android:layout_width="@dimen/px01"
+            android:layout_height="match_parent"
+            android:background="@color/line_color"/>
+
+        <Button android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/save"
+            android:background="@drawable/sel_btn_white" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+
+</com.zhy.autolayout.AutoLinearLayout>

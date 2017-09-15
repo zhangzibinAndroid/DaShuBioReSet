@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="@dimen/px300"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_bg"
+    android:gravity="center"
+    android:padding="@dimen/px20">
+
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/px20"
+        android:background="@drawable/shape_bg"
+        />
+
+    <TextView
+        android:layout_width="@dimen/px300"
+        android:layout_height="@dimen/px100"
+        android:text="正在连接蓝牙..."
+        android:textColor="@color/text_color_dark"
+        android:gravity="center"
+        android:textSize="@dimen/px30"
+        android:background="@drawable/shape_bg" />
+</com.zhy.autolayout.AutoLinearLayout>

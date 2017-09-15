@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="nationResArray">
+        <item>汉族</item>
+        <item>壮族</item>
+        <item>满族</item>
+        <item>回族</item>
+        <item>苗族</item>
+        <item>维吾尔族</item>
+        <item>土家族</item>
+        <item>彝族</item>
+        <item>蒙古族</item>
+        <item>藏族</item>
+        <item>布依族</item>
+        <item>侗族</item>
+        <item>瑶族</item>
+        <item>朝鲜族</item>
+        <item>白族</item>
+        <item>哈尼族</item>
+        <item>哈萨克族</item>
+        <item>黎族</item>
+        <item>傣族</item>
+        <item>畲族</item>
+        <item>傈僳族</item>
+        <item>仡佬族</item>
+        <item>东乡族</item>
+        <item>高山族</item>
+        <item>拉祜族</item>
+        <item>水族</item>
+        <item>佤族</item>
+        <item>纳西族</item>
+        <item>羌族</item>
+        <item>土族</item>
+        <item>仫佬族</item>
+        <item>锡伯族</item>
+        <item>柯尔克孜族</item>
+        <item>达斡尔族</item>
+        <item>景颇族</item>
+        <item>毛南族</item>
+        <item>撒拉族</item>
+        <item>布朗族</item>
+        <item>塔吉克族</item>
+        <item>阿昌族</item>
+        <item>普米族</item>
+        <item>鄂温克族</item>
+        <item>京族</item>
+        <item>基诺族</item>
+        <item>德昂族</item>
+        <item>保安族</item>
+        <item>俄罗斯族</item>
+        <item>裕固族</item>
+        <item>乌孜别克族</item>
+        <item>门巴族</item>
+        <item>鄂伦春族</item>
+        <item>独龙族</item>
+        <item>塔塔尔族</item>
+        <item>赫哲族</item>
+        <item>珞巴族</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="bloods">
+        <item>A型</item>
+        <item>B型</item>
+        <item>O型</item>
+        <item>AB型</item>
+        <item>不详</item>
+    </string-array>
+
+    <string-array name="rhNegative">
+        <item>否</item>
+        <item>是</item>
+        <item>不详</item>
+    </string-array>
+
+    <string-array name="educationDegrees">
+        <item>文盲及半文盲</item>
+        <item>小学</item>
+        <item>初中</item>
+        <item>高中/技校/中专</item>
+        <item>大学专科以上学历</item>
+        <item>不详</item>
+    </string-array>
+
+    <string-array name="professions">
+        <item>国家机关、企业、事业单位负责人</item>
+        <item>专业技术人员</item>
+        <item>办事人员和有关人员</item>
+        <item>商业服务人员</item>
+        <item>农、林、牧、渔水利业生产员</item>
+        <item>生产、运输设备操作人员及有关人员</item>
+        <item>军人</item>
+        <item>不便分类的其他从业人员</item>
+    </string-array>
+
+    <string-array name="marriage">
+        <item>未婚</item>
+        <item>已婚</item>
+        <item>丧偶</item>
+        <item>离婚</item>
+        <item>未说明的婚姻状况</item>
+    </string-array>
+
+    <string-array name="payStyles">
+        <item>城镇职工基本医疗保险</item>
+        <item>城镇居民基本医疗保险</item>
+        <item>新型农村合作医疗</item>
+        <item>贫困救助</item>
+        <item>商业医疗保险</item>
+        <item>商业医疗保险</item>
+        <item>全公费</item>
+        <item>全自费</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="medicines">
+        <item>无</item>
+        <item>青霉素</item>
+        <item>磺胺</item>
+        <item>链霉素</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="exposes">
+        <item>无</item>
+        <item>化学品</item>
+        <item>毒物</item>
+        <item>射线</item>
+    </string-array>
+
+    <string-array name="diseaseResArray">
+        <item>无</item>
+        <item>高血压</item>
+        <item>糖尿病</item>
+        <item>冠心病</item>
+        <item>慢性阻塞性肺疾病</item>
+        <item>恶性肿瘤</item>
+        <item>脑卒中</item>
+        <item>重型精神疾病</item>
+        <item>结核病</item>
+        <item>肝炎</item>
+        <item>其他法定遗传病</item>
+        <item>职业病</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="familyHistoryResArray">
+        <item>无</item>
+        <item>高血压</item>
+        <item>糖尿病</item>
+        <item>冠心病</item>
+        <item>慢性阻塞性肺疾病</item>
+        <item>恶性肿瘤</item>
+        <item>脑卒中</item>
+        <item>重型精神疾病</item>
+        <item>结核病</item>
+        <item>肝炎</item>
+        <item>先天畸形</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="canjis">
+        <item>无残疾</item>
+        <item>视力障碍</item>
+        <item>听力障碍</item>
+        <item>语言残疾</item>
+        <item>肢体残疾</item>
+        <item>智力残疾</item>
+        <item>精神残疾</item>
+        <item>其他残疾</item>
+    </string-array>
+
+    <string-array name="exhausts">
+        <item>无</item>
+        <item>油烟机</item>
+        <item>换气扇</item>
+        <item>烟囱</item>
+    </string-array>
+
+    <string-array name="fuels">
+        <item>液化气</item>
+        <item>煤</item>
+        <item>天然气</item>
+        <item>沼气</item>
+        <item>柴火</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="waters">
+        <item>自来水</item>
+        <item>经净化过滤的水</item>
+        <item>井水</item>
+        <item>河湖水</item>
+        <item>塘水</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="wcs">
+        <item>卫生厕所</item>
+        <item>一格或二格粪池式</item>
+        <item>马桶</item>
+        <item>露天粪坑</item>
+        <item>简易厕所</item>
+    </string-array>
+
+    <string-array name="qcls">
+        <item>单设</item>
+        <item>室内</item>
+        <item>室外</item>
+    </string-array>
+
+    <string-array name="items">
+        <item>血压</item>
+        <item>血氧</item>
+        <item>心率</item>
+        <item>心电</item>
+        <item>体温</item>
+        <item>血糖</item>
+        <item>血脂四项</item>
+        <item>尿酸</item>
+        <item>谷丙转氨酶</item>
+        <item>血红蛋白</item>
+        <item>尿胆原</item>
+        <item>胆红素</item>
+        <item>酮体</item>
+        <item>蛋白质</item>
+        <item>白细胞</item>
+        <item>尿葡萄糖</item>
+        <item>尿比重</item>
+        <item>PH</item>
+        <item>尿隐血</item>
+        <item>亚硝酸盐</item>
+        <item>抗坏血酸</item>
+    </string-array>
+
+
+    <array name="ecg_pager_speed">
+        <item>25mm/s</item>
+        <item>50mm/s</item>
+    </array>
+    <array name="ecg_calibration">
+        <item>5mm/mV</item>
+        <item>10mm/mV</item>
+        <item>20mm/mV</item>
+    </array>
+
+    <string-array name="data_type">
+        <item>"血压（BP）"</item>
+        <item>"体温（BT）"</item>
+        <item>"血氧（SPO₂H）"</item>
+        <item>"心电图（ECG）"</item>
+    </string-array>
+
+    <!--***********************扫描蓝牙设备的设备名前缀白名单数组***********************************-->
+    <!--蓝牙设备扫描时以白名单内的字段作为设备名前缀的设备将被添加到蓝牙设备扫描列表中，其余的过滤。-->
+    <!--请在名单中设置所要扫描到的设备名前缀-->
+    <!--体温计的设备名前缀白名单-->
+    <string-array name="thermometer_dev_name_prefixes">
+        <item>"LinkTC"</item>
+        <item>"RuihTC"</item>
+    </string-array>
+    <!--健康检测仪的设备名前缀白名单-->
+    <string-array name="health_monitor_dev_name_prefixes">
+        <item>"HC02"</item>
+    </string-array>
+    <!--**********************************************************-->
+
+</resources>

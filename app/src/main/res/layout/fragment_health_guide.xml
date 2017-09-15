@@ -1,0 +1,89 @@
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xrefreshview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/px20"
+    android:paddingLeft="@dimen/px30"
+    android:paddingRight="@dimen/px30"
+    android:paddingTop="@dimen/px20">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px80">
+
+        <Spinner
+            android:id="@+id/health_warning_spinner"
+            android:layout_width="@dimen/px80"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/px10"
+            android:paddingRight="@dimen/px10"
+            android:textColor="@color/black"
+            android:textSize="@dimen/px28" />
+
+        <TextView
+            android:id="@+id/tv_nonedata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="暂无数据"
+            android:textColor="@color/black" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px80"
+        android:background="#00A0EA">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="年龄"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px32" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="项目"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px32" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="测量值"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px32" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="预警"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px32" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.andview.refreshview.XRefreshView
+        android:id="@+id/xrefresh_guide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        xrefreshview:isHeightMatchParent="true"
+        xrefreshview:isWidthMatchParent="true">
+
+        <ExpandableListView
+            android:id="@+id/lv_guide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.andview.refreshview.XRefreshView>
+</com.zhy.autolayout.AutoLinearLayout>

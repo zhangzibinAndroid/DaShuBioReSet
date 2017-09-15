@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/px70"
+    android:paddingBottom="@dimen/px70"
+    android:paddingLeft="@dimen/px40"
+    android:paddingRight="@dimen/px40">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/lay_camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbars="none" >
+
+        <SurfaceView
+            android:id="@+id/camera_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.dashubio.view.ScreenSetting
+            android:id="@+id/camera_screen_setting"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ProgressBar
+            android:id="@+id/reco_recognize_bar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/camera_shutter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/bcr_camera_shutter" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/camera_card"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/px20"
+        android:textSize="@dimen/px35"/>
+
+
+    <Button android:id="@+id/btn_register"
+        android:layout_width="@dimen/px180"
+        android:layout_height="@dimen/px100"
+        android:layout_gravity="center"
+        android:text="@string/manual_register"
+        android:layout_marginTop="@dimen/px20"
+        android:textColor="@color/white"
+        android:background="@drawable/register_btn_bg"/>
+
+</com.zhy.autolayout.AutoLinearLayout>

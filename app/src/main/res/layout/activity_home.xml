@@ -1,0 +1,143 @@
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="@dimen/px200"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/menu_color" >
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px80"
+            android:layout_marginTop="@dimen/px40"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:src="@drawable/dashubio_logo" />
+
+        <com.dashubio.view.RoundImageView
+            android:id="@+id/img_user"
+            android:layout_width="@dimen/px120"
+            android:layout_height="@dimen/px120"
+            android:layout_below="@+id/logo"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/default_avatar"
+            android:layout_marginTop="@dimen/px30" />
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/img_user"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px28"
+            android:layout_marginTop="@dimen/px20"
+            android:text="用户" />
+
+        <TextView
+            android:id="@+id/tv_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/px42"
+            android:background="@drawable/quit_bg"
+            android:gravity="center"
+            android:text="返回"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px32" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tv_user_name"
+            android:layout_above="@+id/tv_return"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:weightSum="6"
+            android:layout_marginTop="@dimen/px20"
+            android:layout_marginBottom="@dimen/px40" >
+
+            <TextView
+                android:id="@+id/tv_first_home"
+                style="@style/MainTextViewStyle"
+                android:text="首页" />
+
+            <View style="@style/ViewLineStyle"/>
+
+            <TextView
+                android:id="@+id/tv_start_measurement"
+                style="@style/MainTextViewStyle"
+                android:text="开始测量" />
+
+            <View style="@style/ViewLineStyle"/>
+
+            <TextView
+                android:id="@+id/tv_history_data"
+                style="@style/MainTextViewStyle"
+                android:text="历史数据" />
+            <View style="@style/ViewLineStyle"/>
+
+            <TextView
+                android:id="@+id/tv_health_report"
+                style="@style/MainTextViewStyle"
+                android:text="健康报告" />
+            <View style="@style/ViewLineStyle"/>
+
+            <TextView
+                android:id="@+id/tv_health_archives"
+                style="@style/MainTextViewStyle"
+                android:text="健康档案" />
+            <View style="@style/ViewLineStyle"/>
+
+            <TextView
+                android:id="@+id/tv_health_guide"
+                style="@style/MainTextViewStyle"
+                android:text="健康指导" />
+            <View style="@style/ViewLineStyle"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <TextView
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px120"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/relativeLayout1"
+        android:background="@color/menu_color"
+        android:text="@string/title"
+        android:gravity="center"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColor="@color/white"/>
+
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeLayout2"
+        android:layout_toRightOf="@+id/relativeLayout1"
+        android:orientation="vertical"
+        android:background="@color/white" >
+
+        <com.zhy.autolayout.AutoFrameLayout
+            android:id="@+id/home_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/px50"
+        android:paddingBottom="@dimen/px50"
+        android:background="@color/blue_light"
+        android:text="@string/dashubio_health_management_system"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/px95"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/px130"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/tv_break"
+        android:layout_width="@dimen/px360"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/px370"
+        android:textColor="@color/white"
+        android:textSize="@dimen/px48"
+        android:gravity="center"
+        android:paddingLeft="@dimen/px10"
+        android:text="- - - - - - - - - - -" />
+
+    <TextView
+        android:id="@+id/tv_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_break"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/px55"
+        android:gravity="center"
+        android:paddingLeft="@dimen/px10"
+        android:text="登录" />
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/px300"
+        android:textColor="@color/white"
+        android:textSize="@dimen/px55"
+        android:gravity="center"
+        android:paddingLeft="@dimen/px10"
+        android:text="注册" />
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

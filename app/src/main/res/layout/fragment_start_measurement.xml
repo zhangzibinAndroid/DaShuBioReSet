@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/px20"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#66669A"
+                android:gravity="center"
+                android:padding="@dimen/px20"
+                android:text="@string/health_deceive"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px35" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/lv_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/px20"
+                android:paddingLeft="@dimen/px10"
+                android:paddingRight="@dimen/px10"
+                android:paddingTop="@dimen/px20">
+
+                <ImageView
+                    android:layout_width="@dimen/px100"
+                    android:layout_height="@dimen/px200"
+                    android:src="@mipmap/health_deceive" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/px10"
+                    android:lineSpacingMultiplier="1.5"
+                    android:text="@string/measurement_data_health"
+                    android:textSize="@dimen/px28" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/lay_multi_parameter_monitor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sel_btn_green"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="@dimen/px150"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/bluetooth"
+                    android:gravity="center"
+                    android:padding="@dimen/px20"
+                    android:text="@string/synchronize_data"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px30" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/px20"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#66669A"
+                android:gravity="center"
+                android:padding="@dimen/px20"
+                android:text="@string/urine_detector"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px35" />
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/lv_bg"
+                android:gravity="center_vertical"
+                android:paddingBottom="@dimen/px20"
+                android:paddingLeft="@dimen/px10"
+                android:paddingRight="@dimen/px10"
+                android:paddingTop="@dimen/px20">
+
+                <ImageView
+                    android:layout_width="@dimen/px100"
+                    android:layout_height="@dimen/px200"
+                    android:src="@mipmap/urine_detector" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/px10"
+                    android:lineSpacingMultiplier="1.5"
+                    android:text="@string/urine_detector_measurement_data"
+                    android:textSize="@dimen/px28" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/lay_urine_detector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sel_btn_green"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="@dimen/px150"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/bluetooth"
+                    android:gravity="center"
+                    android:padding="@dimen/px20"
+                    android:text="@string/synchronize_data"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px30" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/px20"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#66669A"
+                android:gravity="center"
+                android:padding="@dimen/px20"
+                android:text="@string/dry_biochemical_analyzer"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px35" />
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/lv_bg"
+                android:gravity="center_vertical"
+                android:paddingBottom="@dimen/px20"
+                android:paddingLeft="@dimen/px10"
+                android:paddingRight="@dimen/px10"
+                android:paddingTop="@dimen/px20">
+
+                <ImageView
+                    android:layout_width="@dimen/px100"
+                    android:layout_height="@dimen/px200"
+                    android:src="@mipmap/dry_biochemical_analyzer" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/px10"
+                    android:lineSpacingMultiplier="1.5"
+                    android:text="@string/dry_biochemical_analyzer_measurement_data"
+                    android:textSize="@dimen/px28" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/lay_dry_biochemical_analyzer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sel_btn_green"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="@dimen/px150"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/bluetooth"
+                    android:gravity="center"
+                    android:padding="@dimen/px20"
+                    android:text="@string/synchronize_data"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px30" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/px20"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#66669A"
+                android:gravity="center"
+                android:padding="@dimen/px20"
+                android:text="@string/respiratory_monitor"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px35" />
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/lv_bg"
+                android:gravity="center_vertical"
+                android:paddingBottom="@dimen/px20"
+                android:paddingLeft="@dimen/px10"
+                android:paddingRight="@dimen/px10"
+                android:paddingTop="@dimen/px20">
+
+                <ImageView
+                    android:layout_width="@dimen/px100"
+                    android:layout_height="@dimen/px200"
+                    android:src="@mipmap/respiratory_monitor" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:lineSpacingExtra="@dimen/px10"
+                    android:lineSpacingMultiplier="1.5"
+                    android:text="@string/respiratory_monitor_measurement_data"
+                    android:textSize="@dimen/px28" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/lay_respiratory_monitor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sel_btn_green"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="@dimen/px150"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/bluetooth"
+                    android:gravity="center"
+                    android:padding="@dimen/px20"
+                    android:text="@string/synchronize_data"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px30" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+</com.zhy.autolayout.AutoLinearLayout>

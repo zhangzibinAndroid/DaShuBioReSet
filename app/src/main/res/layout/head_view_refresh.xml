@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/px10">
+
+    <ImageView android:id="@+id/img_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/lay_pulltv"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/px40"
+        android:src="@drawable/ic_refresh" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/lay_pulltv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <TextView android:id="@+id/tv_pullLoad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/px30"
+            android:text="下拉刷新"/>
+
+        <TextView android:id="@+id/tv_refreshTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/px25"
+            android:text="刚刚刷新"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

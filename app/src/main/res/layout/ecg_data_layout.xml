@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView android:id="@+id/tv_rr_max"
+            style="@style/text_ecg_data"
+            android:text="RR最大值：" />
+
+        <TextView android:id="@+id/tv_rr_min"
+            style="@style/text_ecg_data"
+            android:text="RR最小值："/>
+
+
+        <TextView android:id="@+id/tv_mood"
+            style="@style/text_ecg_data"
+            android:text="心情："/>
+
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginRight="@dimen/px20">
+
+        <TextView android:id="@+id/tv_heart_rate"
+            style="@style/text_ecg_data"
+            android:text="心率："/>
+
+        <TextView android:id="@+id/tv_heart_rate_variability"
+            style="@style/text_ecg_data"
+            android:text="心率变异性："/>
+
+        <TextView android:id="@+id/tv_breathing_rate"
+            style="@style/text_ecg_data"
+            android:text="呼吸率："/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <Button android:id="@+id/btn_start_measure"
+        android:layout_width="@dimen/px70"
+        android:layout_height="@dimen/px100"
+        android:text="开始"
+        android:textSize="@dimen/px32"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_bluesharp_selector"
+        android:layout_marginRight="@dimen/px20"/>
+
+
+    <Button android:id="@+id/btn_start_save"
+        android:layout_width="@dimen/px70"
+        android:layout_height="@dimen/px100"
+        android:text="保存"
+        android:textSize="@dimen/px32"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_bluesharp_selector"
+        android:layout_marginRight="@dimen/px20"/>
+
+</com.zhy.autolayout.AutoLinearLayout>

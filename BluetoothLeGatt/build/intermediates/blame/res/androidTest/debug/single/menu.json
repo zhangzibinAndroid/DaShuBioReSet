@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\main.xml",
+        "source": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\bundles\\debug\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\gatt_services.xml",
+        "source": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\bundles\\debug\\res\\menu\\gatt_services.xml"
+    }
+]

@@ -1,0 +1,60 @@
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:xrefreshview="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px100"
+        android:orientation="horizontal"
+        android:background="#00A0EA">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="项目名称"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px32" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="正常范围"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px32" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="说明"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px32" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.andview.refreshview.XRefreshView
+        android:id="@+id/xrefresh_warning"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        xrefreshview:isHeightMatchParent="true"
+        xrefreshview:isWidthMatchParent="true">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lv_warning"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    </com.andview.refreshview.XRefreshView>
+
+
+</com.zhy.autolayout.AutoLinearLayout>

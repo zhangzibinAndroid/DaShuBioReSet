@@ -1,19 +1,28 @@
 package com.dashubio.fragment.health_deceive;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dashubio.R;
+import com.dashubio.activity.HomeActivity;
 import com.dashubio.base.BaseFragment;
 import com.dashubio.bean.eventmsg.EventMessage;
+import com.dashubio.constant.Constants;
+import com.dashubio.constant.InterfaceUrl;
+import com.dashubio.db.DBManager;
+import com.dashubio.utils.NetUtil;
 import com.dashubio.view.ProgressView;
 import com.linktop.MonitorDataTransmissionManager;
 import com.linktop.infs.OnBtResultListener;
 import com.linktop.whealthService.MeasureType;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -21,6 +30,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import okhttp3.Call;
 
 /**
  * 作者： 张梓彬
@@ -30,7 +40,7 @@ import butterknife.Unbinder;
  */
 
 public class BodyTemperatureFragment extends BaseFragment implements OnBtResultListener {
-
+    private static final String TAG = "BodyTemperatureFragment";
     @BindView(R.id.progress_view)
     ProgressView progressView;
     @BindView(R.id.tv_tem_data)
@@ -54,6 +64,7 @@ public class BodyTemperatureFragment extends BaseFragment implements OnBtResultL
     }
 
     private void initView() {
+        dbManager = new DBManager(getActivity());
         isMeasureTemp = false;
         manager = MonitorDataTransmissionManager.getInstance();
         btnStartMeasureSave.setVisibility(View.GONE);
@@ -83,8 +94,44 @@ public class BodyTemperatureFragment extends BaseFragment implements OnBtResultL
                 }
                 break;
             case R.id.btn_start_measure_save:
+                if (NetUtil.isNetworkConnectionActive(getActivity())){
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+//                            temInterface();
+                        }
+                    }).start();
+                }else {
+                    Log.e(TAG, "Constants.id==: "+Constants.id );
+                    dbManager.addTemData(Constants.id,tvTemData.getText().toString());
+                    Toast.makeText(getActivity(), "本地保存成功", Toast.LENGTH_SHORT).show();
+                }
+
+
+
+
                 break;
         }
+    }
+
+    private void temInterface() {
+        Log.e(TAG, "url: "+InterfaceUrl.HEALTH_URL+sessonWithCode+"/m_id/"+ HomeActivity.mid );
+        OkHttpUtils.post().url(InterfaceUrl.HEALTH_URL+sessonWithCode+"/m_id/"+ HomeActivity.mid)
+                .addParams("project","6")
+                .addParams("val",tvTemData.getText().toString())
+                .addParams("unit","℃")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.e(TAG, "保存异常: "+e.getMessage() );
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.e(TAG, "上传成功: "+response );
+                    }
+                });
     }
 
     @Override

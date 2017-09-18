@@ -9,9 +9,13 @@ import android.database.sqlite.SQLiteDatabase;
 import com.contec.jar.BC401.BC401_Struct;
 import com.dashubio.bean.UserListBean;
 import com.dashubio.bean.dbmanagerbean.BiochemicalBean;
+import com.dashubio.bean.dbmanagerbean.BoDataBean;
+import com.dashubio.bean.dbmanagerbean.BpDataBean;
 import com.dashubio.bean.dbmanagerbean.BreathingBean;
+import com.dashubio.bean.dbmanagerbean.ECGDataBean;
 import com.dashubio.bean.dbmanagerbean.LoginUserBean;
 import com.dashubio.bean.dbmanagerbean.MultiDataBean;
+import com.dashubio.bean.dbmanagerbean.TemBean;
 
 import java.util.ArrayList;
 
@@ -96,7 +100,7 @@ public class DBManager {
     }
 
     public void clearUserTable() {
-        String sql = "DELETE FROM "+DBHelper.USER_TABLE_NAME;
+        String sql = "DELETE FROM " + DBHelper.USER_TABLE_NAME;
         try {
             db.execSQL(sql);
             revertSeq(db);
@@ -213,7 +217,7 @@ public class DBManager {
     }
 
     //向bc_table表中插入尿液检测仪数据
-    public void addBCData(String id,String time, String URO, String BLD, String BIL, String KET, String GLU, String PRO, String PH, String NIT, String LEU, String SG, String VC) {
+    public void addBCData(String id, String time, String URO, String BLD, String BIL, String KET, String GLU, String PRO, String PH, String NIT, String LEU, String SG, String VC) {
         ContentValues cv = new ContentValues();
         cv.put("time", time);
         cv.put("_id", id);
@@ -337,6 +341,156 @@ public class DBManager {
     //清空多功能参数检测仪数据表
     public void clearBreathingTable() {
         ExecSQL("DELETE FROM " + DBHelper.BREATHING_TABLE_NAME);
+    }
+
+
+    //向tem_table表中插入数据
+    public void addTemData(String id, String date) {
+        ContentValues cv = new ContentValues();
+        cv.put("_id", id);
+        cv.put("tem_date", date);
+        db.insert(DBHelper.HEALTH_TEM_TABLE_NAME, null, cv);
+    }
+
+    //搜索体温数据表
+    public ArrayList<TemBean> searchTemgData() {
+        String sql = "SELECT * FROM " + DBHelper.HEALTH_TEM_TABLE_NAME;
+        return ExecSQLForTemData(sql);
+    }
+
+    private ArrayList<TemBean> ExecSQLForTemData(String sql) {
+        ArrayList<TemBean> list = new ArrayList<>();
+        Cursor c = ExecSQLForCursor(sql);
+        while (c.moveToNext()) {
+            TemBean temBean = new TemBean();
+            temBean.id = c.getString(c.getColumnIndex("_id"));
+            temBean.tem_data = c.getString(c.getColumnIndex("tem_date"));
+            list.add(temBean);
+        }
+        c.close();
+        return list;
+    }
+
+    //清空体温数据表
+    public void clearTemTable() {
+        ExecSQL("DELETE FROM " + DBHelper.HEALTH_TEM_TABLE_NAME);
+    }
+
+
+    //向bo_table表中插入数据
+    public void addBoData(String id, String date, String hr) {
+        ContentValues cv = new ContentValues();
+        cv.put("_id", id);
+        cv.put("bo_date", date);
+        cv.put("hr", hr);
+        db.insert(DBHelper.BO_TABLE_NAME, null, cv);
+    }
+
+    //搜索血氧数据表
+    public ArrayList<BoDataBean> searchBoData() {
+        String sql = "SELECT * FROM " + DBHelper.BO_TABLE_NAME;
+        return ExecSQLForBoData(sql);
+    }
+
+    private ArrayList<BoDataBean> ExecSQLForBoData(String sql) {
+        ArrayList<BoDataBean> list = new ArrayList<>();
+        Cursor c = ExecSQLForCursor(sql);
+        while (c.moveToNext()) {
+            BoDataBean boDataBean = new BoDataBean();
+            boDataBean.id = c.getString(c.getColumnIndex("_id"));
+            boDataBean.bo_data = c.getString(c.getColumnIndex("bo_date"));
+            boDataBean.hr = c.getString(c.getColumnIndex("hr"));
+            list.add(boDataBean);
+        }
+        c.close();
+        return list;
+    }
+
+    //清空血氧数据表
+    public void clearBoTable() {
+        ExecSQL("DELETE FROM " + DBHelper.BO_TABLE_NAME);
+    }
+
+
+    //向bp_table表中插入数据
+    public void addBpData(String id, String date, String hr) {
+        ContentValues cv = new ContentValues();
+        cv.put("_id", id);
+        cv.put("sys_date", date);
+        cv.put("dia_data", hr);
+        db.insert(DBHelper.BP_TABLE_NAME, null, cv);
+    }
+
+
+    //搜索血压数据表
+    public ArrayList<BpDataBean> searchBpData() {
+        String sql = "SELECT * FROM " + DBHelper.BP_TABLE_NAME;
+        return ExecSQLForBpData(sql);
+    }
+
+    private ArrayList<BpDataBean> ExecSQLForBpData(String sql) {
+        ArrayList<BpDataBean> list = new ArrayList<>();
+        Cursor c = ExecSQLForCursor(sql);
+        while (c.moveToNext()) {
+            BpDataBean bpDataBean = new BpDataBean();
+            bpDataBean.id = c.getString(c.getColumnIndex("_id"));
+            bpDataBean.dia = c.getString(c.getColumnIndex("dia_data"));
+            bpDataBean.sys = c.getString(c.getColumnIndex("sys_date"));
+            list.add(bpDataBean);
+        }
+        c.close();
+        return list;
+    }
+
+
+    //清空血压数据表
+    public void clearBpTable() {
+        ExecSQL("DELETE FROM " + DBHelper.BP_TABLE_NAME);
+    }
+
+
+    //向ecg_table表中插入数据
+    public void addEcgData(String id, String rr_max, String rr_min, String mood, String hr, String hrv, String breath) {
+        ContentValues cv = new ContentValues();
+        cv.put("_id", id);
+        cv.put("rr_max", rr_max);
+        cv.put("rr_min", rr_min);
+        cv.put("mood", mood);
+        cv.put("hr", hr);
+        cv.put("hrv", hrv);
+        cv.put("breath", breath);
+        db.insert(DBHelper.ECG_TABLE_NAME, null, cv);
+    }
+
+
+    //搜索心电数据表
+    public ArrayList<ECGDataBean> searchEcgData() {
+        String sql = "SELECT * FROM " + DBHelper.ECG_TABLE_NAME;
+        return ExecSQLForEcgData(sql);
+    }
+
+    private ArrayList<ECGDataBean> ExecSQLForEcgData(String sql) {
+        ArrayList<ECGDataBean> list = new ArrayList<>();
+        Cursor c = ExecSQLForCursor(sql);
+        while (c.moveToNext()) {
+            ECGDataBean ecgDataBean = new ECGDataBean();
+            ecgDataBean.id = c.getString(c.getColumnIndex("_id"));
+            ecgDataBean.rr_max = c.getString(c.getColumnIndex("rr_max"));
+            ecgDataBean.rr_min = c.getString(c.getColumnIndex("rr_min"));
+            ecgDataBean.mood = c.getString(c.getColumnIndex("mood"));
+            ecgDataBean.hr = c.getString(c.getColumnIndex("hr"));
+            ecgDataBean.hrv = c.getString(c.getColumnIndex("hrv"));
+            ecgDataBean.breath = c.getString(c.getColumnIndex("breath"));
+            list.add(ecgDataBean);
+        }
+        c.close();
+        return list;
+    }
+
+
+    //清空心电数据表
+    public void clearEcgTable() {
+        ExecSQL("DELETE FROM " + DBHelper.ECG_TABLE_NAME);
     }
 
     //执行SQL，返回一个游标

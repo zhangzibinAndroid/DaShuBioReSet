@@ -116,9 +116,10 @@ public class UserManageFragment extends BaseFragment {
         initXRefresh();
         userListAdapter.setOnButtonClickListener(new UserListAdapter.OnButtonClickListener() {
             @Override
-            public void onButtonClick(View view, final String id, int position) {
+            public void onButtonClick(View view, final String id, int position,List list) {
                 inputQueryEt.setText("");
-
+                ArrayList<UserListBean.UserListDataBean> userList = dbManager.searchUserList();
+                Constants.id = (userList.size() - position) + "";
                 if (NetUtil.isNetworkConnectionActive(getActivity())) {
                     new Thread(new Runnable() {
                         @Override
@@ -127,10 +128,8 @@ public class UserManageFragment extends BaseFragment {
                         }
                     }).start();
                 } else {
-                    ArrayList<UserListBean.UserListDataBean> userList = dbManager.searchUserList();
                     UserListBean.UserListDataBean bean = userList.get(userList.size() - 1 - position);
                     JumpActivityWithUserData(HomeActivity.class, bean.getName(), bean.getId());
-                    Constants.id = (userList.size() - position) + "";
                 }
 
 

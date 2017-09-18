@@ -11,6 +11,8 @@ import com.dashubio.R;
 import com.dashubio.base.MyBaseAdapter;
 import com.dashubio.bean.UserListBean;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -56,7 +58,7 @@ public class UserListAdapter extends MyBaseAdapter<UserListBean.UserListDataBean
             public void onClick(View v) {
                 if (mOnButtonClickListener != null) {
                     //注意这里使用getTag方法获取position
-                    mOnButtonClickListener.onButtonClick(v, (String) finalViewHolder.btnItemLogin.getTag(),position);
+                    mOnButtonClickListener.onButtonClick(v, (String) finalViewHolder.btnItemLogin.getTag(),position,list);
                 }
             }
         });
@@ -67,7 +69,7 @@ public class UserListAdapter extends MyBaseAdapter<UserListBean.UserListDataBean
 
 
     public static interface OnButtonClickListener {
-        void onButtonClick(View view, String id, int position);
+        void onButtonClick(View view, String id, int position, List list);
     }
 
     public void setOnButtonClickListener(OnButtonClickListener listener) {

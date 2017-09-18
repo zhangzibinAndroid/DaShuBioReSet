@@ -39,6 +39,4 @@ public class InterfaceUrl {
     public static final String BITMAP_URL= WEBVIEW_BASE_URL+"Uploads/";//加上图片名称
     public static final String HEALTH_URL= BASE_URL+"Testing/check/";//健康检测仪上传数据接口需要添加sesson和code
 
-
-
 }

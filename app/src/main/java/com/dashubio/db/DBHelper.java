@@ -19,6 +19,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String BC_TABLE_NAME = "bc_table";//尿液检测仪表
     public static final String BIOCHEMICAL_TABLE_NAME = "biochemical_table";//干式生化仪检测表
     public static final String BREATHING_TABLE_NAME = "breathing_table";//呼吸监控器检测表
+    public static final String HEALTH_TEM_TABLE_NAME = "tem_table";//体温检测表
+    public static final String BO_TABLE_NAME = "bo_table";//血氧检测表
+    public static final String BP_TABLE_NAME = "bp_table";//血压检测表
+    public static final String ECG_TABLE_NAME = "ecg_table";//心电检测表
     private static final int DB_VERSION = 1;
 
     public DBHelper(Context context) {
@@ -33,6 +37,10 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE IF NOT EXISTS " + BC_TABLE_NAME + "(_id,time STRING,URO STRING,BLD STRING,BIL STRING,KET STRING,GLU STRING,PRO STRING,PH STRING,NIT STRING,LEU STRING,SG STRING,VC STRING)");
         db.execSQL("CREATE TABLE IF NOT EXISTS " + BIOCHEMICAL_TABLE_NAME + "(_id,message STRING)");
         db.execSQL("CREATE TABLE IF NOT EXISTS " + BREATHING_TABLE_NAME + "(_id,date STRING,tvPef STRING,tvFvc STRING,tvFev1 STRING)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + HEALTH_TEM_TABLE_NAME + "(_id,tem_date STRING)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + BO_TABLE_NAME + "(_id,bo_date STRING,hr STRING)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + BP_TABLE_NAME + "(_id,sys_date STRING,dia_data STRING)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + ECG_TABLE_NAME + "(_id,rr_max STRING,rr_min STRING,mood STRING,hr STRING,hrv STRING,breath STRING)");
     }
 
     //数据库第一次创建时onCreate方法会被调用，我们可以执行创建表的语句，当系统发现版本变化之后，会调用onUpgrade方法，我们可以执行修改表结构等语句

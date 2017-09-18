@@ -19,6 +19,7 @@ import com.dashubio.fragment.home.HistoryDataFragment;
 import com.dashubio.fragment.home.HomeFristFragment;
 import com.dashubio.fragment.home.StartMeasurementFragment;
 import com.dashubio.fragment.other.HealthDeceiveFragment;
+import com.linktop.MonitorDataTransmissionManager;
 import com.zhy.autolayout.AutoFrameLayout;
 
 import org.greenrobot.eventbus.EventBus;
@@ -67,6 +68,7 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void initView() {
+        manager = MonitorDataTransmissionManager.getInstance();
         EventBus.getDefault().register(this);
         homeFristFragment = new HomeFristFragment();
         startMeasurementFragment = new StartMeasurementFragment();

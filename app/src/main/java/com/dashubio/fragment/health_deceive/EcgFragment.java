@@ -110,9 +110,19 @@ public class EcgFragment extends BaseFragment implements OnEcgResultListener {
                 }
                 break;
             case R.id.btn_start_save:
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ecgInterface();
+                    }
+                }).start();
 
                 break;
         }
+    }
+
+    private void ecgInterface() {
+//        OkHttpUtils.post().addParams()
     }
 
     @Override

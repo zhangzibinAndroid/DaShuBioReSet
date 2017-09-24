@@ -14,10 +14,14 @@ import com.dashubio.activity.HomeActivity;
 import com.dashubio.base.BaseFragment;
 import com.dashubio.bean.eventmsg.EventMessage;
 import com.dashubio.constant.Constants;
+import com.dashubio.constant.ErrorCode;
 import com.dashubio.constant.InterfaceUrl;
 import com.dashubio.db.DBManager;
+import com.dashubio.fragment.health_deceive.ecg_bean.DetectItem;
+import com.dashubio.fragment.health_deceive.tem.TemperatureMeasuredData;
 import com.dashubio.utils.NetUtil;
 import com.dashubio.view.ProgressView;
+import com.google.gson.Gson;
 import com.linktop.MonitorDataTransmissionManager;
 import com.linktop.infs.OnBtResultListener;
 import com.linktop.whealthService.MeasureType;
@@ -53,6 +57,8 @@ public class BodyTemperatureFragment extends BaseFragment implements OnBtResultL
     TextView tvTemWarning;
     private Unbinder unbinder;
     private boolean isMeasureTemp = false;
+    private TemperatureMeasuredData temperatureMeasuredData;
+    private Gson gson;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,6 +70,8 @@ public class BodyTemperatureFragment extends BaseFragment implements OnBtResultL
     }
 
     private void initView() {
+        temperatureMeasuredData = new TemperatureMeasuredData();
+        gson = new Gson();
         dbManager = new DBManager(getActivity());
         isMeasureTemp = false;
         manager = MonitorDataTransmissionManager.getInstance();
@@ -94,20 +102,24 @@ public class BodyTemperatureFragment extends BaseFragment implements OnBtResultL
                 }
                 break;
             case R.id.btn_start_measure_save:
-                if (NetUtil.isNetworkConnectionActive(getActivity())){
+                //体温
+                DetectItem temperatureItem = new DetectItem();
+                temperatureItem.setValue(Float.valueOf(tvTemData.getText().toString().trim()));
+                temperatureItem.setUnit("℃");
+                temperatureMeasuredData.setTemperature(temperatureItem);
+
+
+                if (NetUtil.isNetworkConnectionActive(getActivity())) {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-//                            temInterface();
+                            temInterface();
                         }
                     }).start();
-                }else {
-                    Log.e(TAG, "Constants.id==: "+Constants.id );
-                    dbManager.addTemData(Constants.id,tvTemData.getText().toString());
+                } else {
+                    dbManager.addTemData(Constants.id, tvTemData.getText().toString());
                     Toast.makeText(getActivity(), "本地保存成功", Toast.LENGTH_SHORT).show();
                 }
-
-
 
 
                 break;
@@ -115,23 +127,28 @@ public class BodyTemperatureFragment extends BaseFragment implements OnBtResultL
     }
 
     private void temInterface() {
-        Log.e(TAG, "url: "+InterfaceUrl.HEALTH_URL+sessonWithCode+"/m_id/"+ HomeActivity.mid );
-        OkHttpUtils.post().url(InterfaceUrl.HEALTH_URL+sessonWithCode+"/m_id/"+ HomeActivity.mid)
-                .addParams("project","6")
-                .addParams("val",tvTemData.getText().toString())
-                .addParams("unit","℃")
+        String temUrl = InterfaceUrl.HEALTH_URL + sessonWithCode + "/m_id/" + HomeActivity.mid;
+        Log.e(TAG, "url: " + temUrl);
+        Log.e(TAG, "temInterface: "+tvTemData.getText().toString() );
+        OkHttpUtils.post().url(temUrl)
+                .addParams("data", gson.toJson(temperatureMeasuredData))
                 .build()
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        Log.e(TAG, "保存异常: "+e.getMessage() );
+                        toastOnUi("保存异常，请检查网络"+e.getMessage());
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.e(TAG, "上传成功: "+response );
+                        Log.e(TAG, "onResponse: "+response );
+                        if (response.indexOf(ErrorCode.SUCCESS) > 0) {
+                            toastOnUi("保存成功");
+                        }
+
                     }
                 });
+
     }
 
     @Override
@@ -140,6 +157,8 @@ public class BodyTemperatureFragment extends BaseFragment implements OnBtResultL
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
+
+
                 btnStartMeasureSave.setVisibility(View.VISIBLE);
                 tvTemData.setText(temData + "");
                 manager.resetMeasureFlag();

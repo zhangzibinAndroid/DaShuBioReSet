@@ -2,19 +2,32 @@ package com.dashubio.fragment.health_deceive;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dashubio.R;
+import com.dashubio.activity.HomeActivity;
 import com.dashubio.base.BaseFragment;
 import com.dashubio.bean.eventmsg.EventMessage;
+import com.dashubio.constant.Constants;
+import com.dashubio.constant.ErrorCode;
+import com.dashubio.constant.InterfaceUrl;
+import com.dashubio.db.DBManager;
+import com.dashubio.fragment.health_deceive.bp.BloodPressureMeasuredData;
+import com.dashubio.fragment.health_deceive.ecg_bean.DetectItem;
+import com.dashubio.utils.NetUtil;
 import com.dashubio.view.ProgressView;
+import com.google.gson.Gson;
 import com.linktop.MonitorDataTransmissionManager;
 import com.linktop.infs.OnBpResultListener;
 import com.linktop.whealthService.MeasureType;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -22,6 +35,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import okhttp3.Call;
 
 /**
  * 作者： 张梓彬
@@ -46,7 +60,10 @@ public class BloodPressureMeasureFragment extends BaseFragment implements OnBpRe
     private Unbinder unbinder;
     private boolean isMeasureBp = false;
     private int sys,dia;
+    private BloodPressureMeasuredData bloodPressureMeasuredData;
+    private Gson gson;
 
+    private static final String TAG = "BloodPressureMeasureFra";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,6 +75,9 @@ public class BloodPressureMeasureFragment extends BaseFragment implements OnBpRe
 
 
     private void initView() {
+        gson = new Gson();
+        dbManager = new DBManager(getActivity());
+        bloodPressureMeasuredData = new BloodPressureMeasuredData();
         tvDiastolicWarning.setVisibility(View.INVISIBLE);
         btnStartMeasureSave.setVisibility(View.GONE);
         manager = MonitorDataTransmissionManager.getInstance();
@@ -81,6 +101,7 @@ public class BloodPressureMeasureFragment extends BaseFragment implements OnBpRe
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.header_left_container:
+
                 if (isMeasureBp){
                     manager.stopMeasure(MeasureType.BP);
                     btnStartMeasureBp.setText("开始");
@@ -89,6 +110,8 @@ public class BloodPressureMeasureFragment extends BaseFragment implements OnBpRe
                 EventBus.getDefault().post(new EventMessage("back"));
                 break;
             case R.id.btn_start_measure_bp:
+
+
                 btnStartMeasureSave.setVisibility(View.GONE);
                 if (!isMeasureBp) {
                     MonitorDataTransmissionManager.getInstance().startMeasure(MeasureType.BP);
@@ -103,8 +126,42 @@ public class BloodPressureMeasureFragment extends BaseFragment implements OnBpRe
                 }
                 break;
             case R.id.btn_start_measure_save:
+                final String temUrl = InterfaceUrl.HEALTH_URL+sessonWithCode+"/m_id/"+ HomeActivity.mid;
+                Log.e(TAG, "url: "+temUrl);
+                if (NetUtil.isNetworkConnectionActive(getActivity())){
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            ecgInterface(temUrl);
+                        }
+                    }).start();
+                }else {
+                    dbManager.addBpData(Constants.id,sys+"",dia+"");
+                    Toast.makeText(getActivity(), "本地保存成功", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
+    }
+
+    private void ecgInterface(String url) {
+        OkHttpUtils.post().url(url)
+                .addParams("data",gson.toJson(bloodPressureMeasuredData))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        toastOnUi("保存异常，请检查网络"+e.getMessage());
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        if (response.indexOf(ErrorCode.SUCCESS) > 0) {
+                            toastOnUi("保存成功");
+                        }
+                    }
+                });
+
     }
 
     @Override
@@ -114,6 +171,18 @@ public class BloodPressureMeasureFragment extends BaseFragment implements OnBpRe
             public void run() {
                 sys = systolicPressure;
                 dia = diastolicPressure;
+                //高压
+                DetectItem highPressureItem = new DetectItem();
+                highPressureItem.setValue(Float.valueOf(sys));
+                highPressureItem.setUnit("mmHg");
+                bloodPressureMeasuredData.setHighPressure(highPressureItem);
+
+                //低压
+                DetectItem lowPressureItem = new DetectItem();
+                lowPressureItem.setValue(Float.valueOf(dia));
+                lowPressureItem.setUnit("mmHg");
+                bloodPressureMeasuredData.setLowPressure(lowPressureItem);
+
                 btnStartMeasureSave.setVisibility(View.VISIBLE);
                 tvDiastolicWarning.setVisibility(View.VISIBLE);
                 manager.stopMeasure(MeasureType.BP);

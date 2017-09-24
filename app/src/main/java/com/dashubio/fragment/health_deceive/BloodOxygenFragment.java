@@ -2,19 +2,32 @@ package com.dashubio.fragment.health_deceive;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dashubio.R;
+import com.dashubio.activity.HomeActivity;
 import com.dashubio.base.BaseFragment;
 import com.dashubio.bean.eventmsg.EventMessage;
+import com.dashubio.constant.Constants;
+import com.dashubio.constant.ErrorCode;
+import com.dashubio.constant.InterfaceUrl;
+import com.dashubio.db.DBManager;
+import com.dashubio.fragment.health_deceive.bo.OxygenMeasuredData;
+import com.dashubio.fragment.health_deceive.ecg_bean.DetectItem;
+import com.dashubio.utils.NetUtil;
 import com.dashubio.view.ProgressView;
+import com.google.gson.Gson;
 import com.linktop.MonitorDataTransmissionManager;
 import com.linktop.infs.OnSPO2HResultListener;
 import com.linktop.whealthService.MeasureType;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -22,6 +35,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import okhttp3.Call;
 
 /**
  * 作者： 张梓彬
@@ -46,6 +60,9 @@ public class BloodOxygenFragment extends BaseFragment implements OnSPO2HResultLi
     private Unbinder unbinder;
     private boolean isMeasureBo = false;
     private int spo,hr;
+    private static final String TAG = "BloodOxygenFragment";
+    private OxygenMeasuredData oxygenMeasuredData;
+    private Gson gson;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,6 +73,9 @@ public class BloodOxygenFragment extends BaseFragment implements OnSPO2HResultLi
     }
 
     private void initView() {
+        gson = new Gson();
+        dbManager = new DBManager(getActivity());
+        oxygenMeasuredData = new OxygenMeasuredData();
         manager = MonitorDataTransmissionManager.getInstance();
         tvHrWarning.setVisibility(View.INVISIBLE);
         btnSave.setVisibility(View.GONE);
@@ -101,8 +121,43 @@ public class BloodOxygenFragment extends BaseFragment implements OnSPO2HResultLi
                     }
                 break;
             case R.id.btn_save:
+                final String temUrl = InterfaceUrl.HEALTH_URL+sessonWithCode+"/m_id/"+ HomeActivity.mid;
+                Log.e(TAG, "url: "+temUrl);
+
+                if (NetUtil.isNetworkConnectionActive(getActivity())){
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            boInterface(temUrl);
+                        }
+                    }).start();
+                }else {
+                    dbManager.addBoData(Constants.id,spo+"",hr+"");
+                    Toast.makeText(getActivity(), "本地保存成功", Toast.LENGTH_SHORT).show();
+                }
+
+
                 break;
         }
+    }
+
+    private void boInterface(String url) {
+        OkHttpUtils.post().url(url).addParams("data",gson.toJson(oxygenMeasuredData))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        toastOnUi("保存异常，请检查网络"+e.getMessage());
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        if (response.indexOf(ErrorCode.SUCCESS) > 0) {
+                            toastOnUi("保存成功");
+                        }
+                    }
+                });
     }
 
     @Override
@@ -112,6 +167,18 @@ public class BloodOxygenFragment extends BaseFragment implements OnSPO2HResultLi
             public void run() {
                 spo = spo2h;
                 hr = heartRate;
+                //血氧
+                DetectItem oxygenItem = new DetectItem();
+                oxygenItem.setValue(Float.valueOf(spo));
+                oxygenItem.setUnit("");
+                oxygenMeasuredData.setOxygen(oxygenItem);
+
+                //心率
+                DetectItem heartRateItem = new DetectItem();
+                heartRateItem.setValue(Float.valueOf(hr));
+                heartRateItem.setUnit("");
+                oxygenMeasuredData.setHeartRate(heartRateItem);
+
                 manager.stopMeasure(MeasureType.SPO2H);
                 isMeasureBo = false;
                 btnSave.setVisibility(View.VISIBLE);

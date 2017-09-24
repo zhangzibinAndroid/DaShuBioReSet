@@ -413,11 +413,11 @@ public class DBManager {
 
 
     //向bp_table表中插入数据
-    public void addBpData(String id, String date, String hr) {
+    public void addBpData(String id, String sys, String dis) {
         ContentValues cv = new ContentValues();
         cv.put("_id", id);
-        cv.put("sys_date", date);
-        cv.put("dia_data", hr);
+        cv.put("sys_date", sys);
+        cv.put("dia_data", dis);
         db.insert(DBHelper.BP_TABLE_NAME, null, cv);
     }
 

@@ -2,19 +2,31 @@ package com.dashubio.fragment.health_deceive;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dashubio.R;
+import com.dashubio.activity.HomeActivity;
 import com.dashubio.base.BaseFragment;
 import com.dashubio.bean.eventmsg.EventMessage;
+import com.dashubio.constant.Constants;
+import com.dashubio.constant.ErrorCode;
+import com.dashubio.constant.InterfaceUrl;
+import com.dashubio.db.DBManager;
+import com.dashubio.fragment.health_deceive.ecg_bean.EcgMeasuredData;
+import com.dashubio.utils.NetUtil;
 import com.dashubio.view.EcgPathView;
+import com.google.gson.Gson;
 import com.linktop.MonitorDataTransmissionManager;
 import com.linktop.infs.OnEcgResultListener;
 import com.linktop.whealthService.MeasureType;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -22,6 +34,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import okhttp3.Call;
 
 /**
  * 作者： 张梓彬
@@ -54,7 +67,10 @@ public class EcgFragment extends BaseFragment implements OnEcgResultListener {
     Button btnStartMeasure;
     private boolean isMeasureEcg = false;
     private float width = 0;
-
+    private EcgMeasuredData mEcgMeasuredData;
+    private Gson gson;
+    private static final String TAG = "EcgFragment";
+    private int rrmax,rrmin,mood,hr,hrv;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -65,6 +81,9 @@ public class EcgFragment extends BaseFragment implements OnEcgResultListener {
     }
 
     private void initView() {
+        dbManager = new DBManager(getActivity());
+        mEcgMeasuredData = new EcgMeasuredData();
+        gson = new Gson();
         isMeasureEcg = false;
         manager = MonitorDataTransmissionManager.getInstance();
         btnStartSave.setVisibility(View.GONE);
@@ -110,19 +129,62 @@ public class EcgFragment extends BaseFragment implements OnEcgResultListener {
                 }
                 break;
             case R.id.btn_start_save:
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        ecgInterface();
-                    }
-                }).start();
+                mEcgMeasuredData.getHeartRate().setValue(Float.valueOf(hr));
+                mEcgMeasuredData.getHeartRate().setUnit("-");
+                mEcgMeasuredData.getPrmax().setValue(Float.valueOf(rrmax));
+                mEcgMeasuredData.getPrmax().setUnit("-");
+
+                mEcgMeasuredData.getPrmin().setValue(Float.valueOf(rrmin));
+                mEcgMeasuredData.getPrmin().setUnit("-");
+
+                mEcgMeasuredData.getHeartRateVariability().setValue(Float.valueOf(hrv));
+                mEcgMeasuredData.getHeartRateVariability().setUnit("-");
+
+                mEcgMeasuredData.getMood().setValue(Float.valueOf(mood));
+                mEcgMeasuredData.getMood().setUnit("-");
+
+                final String json = gson.toJson(mEcgMeasuredData);
+                Log.e(TAG, "onViewClicked: "+ json);
+                final String temUrl = InterfaceUrl.HEALTH_URL+sessonWithCode+"/m_id/"+ HomeActivity.mid;
+                Log.e(TAG, "url: "+temUrl);
+
+                if (NetUtil.isNetworkConnectionActive(getActivity())){
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            ecgInterface(temUrl,json);
+
+                        }
+                    }).start();
+                }else {
+                    dbManager.addEcgData(Constants.id,rrmax+"",rrmin+"",mood+"",hr+"",hrv+"","");
+                    Toast.makeText(getActivity(), "本地保存成功", Toast.LENGTH_SHORT).show();
+                }
+
+
 
                 break;
         }
     }
 
-    private void ecgInterface() {
-//        OkHttpUtils.post().addParams()
+    private void ecgInterface(String temUrl,String json) {
+        OkHttpUtils.post().url(temUrl)
+                .addParams("data",json)
+                .build().execute(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                toastOnUi("保存异常，请检查网络"+e.getMessage());
+
+            }
+
+            @Override
+            public void onResponse(String response, int id) {
+                if (response.indexOf(ErrorCode.SUCCESS) > 0) {
+                    toastOnUi("保存成功");
+                }
+
+            }
+        });
     }
 
     @Override
@@ -137,29 +199,34 @@ public class EcgFragment extends BaseFragment implements OnEcgResultListener {
 
     @Override
     public void onAvgHr(int i) {
+        hr = i;
         runOnUiMothod(tvHeartRate, "心率：" + i);
     }
 
     @Override
     public void onRRMax(int i) {
+        rrmax = i;
         runOnUiMothod(tvRrMax, "RR最大值：" + i);
 
     }
 
     @Override
     public void onRRMin(int i) {
+        rrmin = i;
         runOnUiMothod(tvRrMin, "RR最小值：" + i);
 
     }
 
     @Override
     public void onHrv(int i) {
+        hrv = i;
         runOnUiMothod(tvHeartRateVariability, "心率变异性：" + i);
 
     }
 
     @Override
     public void onMood(int i) {
+        mood = i;
         runOnUiMothod(tvMood, "心情：" + i);
 
     }
@@ -179,6 +246,7 @@ public class EcgFragment extends BaseFragment implements OnEcgResultListener {
                 manager.stopMeasure(MeasureType.ECG);
                 btnStartMeasure.setText("重新开始");
                 isMeasureEcg = false;
+
             }
         });
 

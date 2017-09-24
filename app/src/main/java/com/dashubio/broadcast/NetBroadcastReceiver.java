@@ -12,14 +12,24 @@ import com.contec.jar.BC401.BC401_Struct;
 import com.dashubio.bean.LoginBean;
 import com.dashubio.bean.UserListBean;
 import com.dashubio.bean.dbmanagerbean.BiochemicalBean;
+import com.dashubio.bean.dbmanagerbean.BoDataBean;
+import com.dashubio.bean.dbmanagerbean.BpDataBean;
 import com.dashubio.bean.dbmanagerbean.BreathingBean;
+import com.dashubio.bean.dbmanagerbean.ECGDataBean;
 import com.dashubio.bean.dbmanagerbean.LoginUserBean;
 import com.dashubio.bean.dbmanagerbean.MultiDataBean;
+import com.dashubio.bean.dbmanagerbean.TemBean;
 import com.dashubio.constant.ErrorCode;
 import com.dashubio.constant.InterfaceUrl;
 import com.dashubio.db.DBManager;
+import com.dashubio.fragment.health_deceive.bo.OxygenMeasuredData;
+import com.dashubio.fragment.health_deceive.bp.BloodPressureMeasuredData;
+import com.dashubio.fragment.health_deceive.ecg_bean.DetectItem;
+import com.dashubio.fragment.health_deceive.ecg_bean.EcgMeasuredData;
+import com.dashubio.fragment.health_deceive.tem.TemperatureMeasuredData;
 import com.dashubio.gson.GsonParsing;
 import com.dashubio.utils.NetUtil;
+import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -46,13 +56,24 @@ public class NetBroadcastReceiver extends BroadcastReceiver {
     private static final String TAG = "NetBroadcastReceiver";
     private Context context;
     private String sessonWithCode;
+    private TemperatureMeasuredData temperatureMeasuredData;
+    private EcgMeasuredData mEcgMeasuredData;
+    private OxygenMeasuredData oxygenMeasuredData;
+    private BloodPressureMeasuredData bloodPressureMeasuredData;
+
+    private Gson gson;
 
     @Override
     public void onReceive(Context context, Intent intent) {
         this.context = context;
         if (NetUtil.isNetworkConnectionActive(context)) {
-            Log.e(TAG, "网络已连接" );
+            Log.e(TAG, "网络已连接");
             dbManager = new DBManager(context);
+            mEcgMeasuredData = new EcgMeasuredData();
+            oxygenMeasuredData = new OxygenMeasuredData();
+            bloodPressureMeasuredData = new BloodPressureMeasuredData();
+            gson = new Gson();
+            temperatureMeasuredData = new TemperatureMeasuredData();
             ArrayList<LoginUserBean> loginList = dbManager.searchLoginData();
             String phone = "";
             String pwds = "";
@@ -84,6 +105,7 @@ public class NetBroadcastReceiver extends BroadcastReceiver {
 
             @Override
             public void onResponse(String result, int id) {
+                Log.e(TAG, "onResponse: " + result);
                 LoginBean loginBean = null;
                 try {
                     loginBean = GsonParsing.getMessage(result);
@@ -168,11 +190,11 @@ public class NetBroadcastReceiver extends BroadcastReceiver {
             }
 
             @Override
-            public void onResponse(String response, int id) {
+            public void onResponse(String userResult, int id) {
                 UserListBean userListBean = null;
-                if (response.indexOf(ErrorCode.SUCCESS) > 0) {
+                if (userResult.indexOf(ErrorCode.SUCCESS) > 0) {
                     try {
-                        userListBean = GsonParsing.getUserListMessage(response);
+                        userListBean = GsonParsing.getUserListMessage(userResult);
                         List<UserListBean.UserListDataBean> userList = userListBean.getData();
                         List<UserListBean.UserListDataBean> dbUserList = dbManager.searchUserList();
                         String mResult = "";
@@ -217,7 +239,7 @@ public class NetBroadcastReceiver extends BroadcastReceiver {
         });
     }
 
-    private Handler handler = new Handler(){
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -270,7 +292,7 @@ public class NetBroadcastReceiver extends BroadcastReceiver {
             ArrayList<UserListBean.UserListDataBean> userList = dbManager.searchDataWithId(ID);
             for (UserListBean.UserListDataBean userListDataBean : userList) {
                 String mid = userListDataBean.getId();
-                pushBCData(mid,time, URO, BIL, GLU, PH, LEU, BLD, KET, PRO, NIT, SG, VC);
+                pushBCData(mid, time, URO, BIL, GLU, PH, LEU, BLD, KET, PRO, NIT, SG, VC);
             }
         }
         //清空尿液检测仪数据表
@@ -306,6 +328,209 @@ public class NetBroadcastReceiver extends BroadcastReceiver {
         //清空呼吸机数据表
         dbManager.clearBreathingTable();
 
+
+        //体温
+        ArrayList<TemBean> temList = dbManager.searchTemgData();
+
+        for (TemBean temBean : temList) {
+            String id = temBean.getId();
+            String temData = temBean.getTem_data();
+            ArrayList<UserListBean.UserListDataBean> userList = dbManager.searchDataWithId(id);
+            for (UserListBean.UserListDataBean userListDataBean : userList) {
+                String mid = userListDataBean.getId();
+                pushTemData(mid, temData);
+
+            }
+        }
+
+        dbManager.clearTemTable();
+
+        //心电
+        ArrayList<ECGDataBean> ecgList = dbManager.searchEcgData();
+        for (ECGDataBean ecgDataBean : ecgList) {
+            String rrmax = ecgDataBean.getRr_max();
+            String rrmin = ecgDataBean.getRr_min();
+            String mood = ecgDataBean.getMood();
+            String hr = ecgDataBean.getHr();
+            String hrv = ecgDataBean.getHrv();
+            String id = ecgDataBean.getId();
+            ArrayList<UserListBean.UserListDataBean> userList = dbManager.searchDataWithId(id);
+            for (UserListBean.UserListDataBean userListDataBean : userList) {
+                String mid = userListDataBean.getId();
+                pushEcgData(mid, rrmax, rrmin, mood, hr, hrv);
+            }
+        }
+
+        dbManager.clearEcgTable();
+
+        //血氧
+        ArrayList<BoDataBean> boList = dbManager.searchBoData();
+        for (BoDataBean boDataBean : boList) {
+            String id = boDataBean.getId();
+            String boData = boDataBean.getBo_data();
+            String hr = boDataBean.getHr();
+            ArrayList<UserListBean.UserListDataBean> userList = dbManager.searchDataWithId(id);
+            for (UserListBean.UserListDataBean userListDataBean : userList) {
+                String mid = userListDataBean.getId();
+                pushBoData(mid, boData, hr);
+            }
+        }
+
+        dbManager.clearBoTable();
+
+
+        ArrayList<BpDataBean> bpList = dbManager.searchBpData();
+        for (BpDataBean bpDataBean : bpList) {
+            String id = bpDataBean.getId();
+            String sys = bpDataBean.getSys();
+            String dia = bpDataBean.getDia();
+            ArrayList<UserListBean.UserListDataBean> userList = dbManager.searchDataWithId(id);
+            for (UserListBean.UserListDataBean userListDataBean : userList) {
+                String mid = userListDataBean.getId();
+                pushBpData(mid, sys, dia);
+            }
+        }
+    }
+
+    //血压
+    private void pushBpData(String mid, String sys, String dia) {
+        final String temUrl = InterfaceUrl.HEALTH_URL+sessonWithCode+"/m_id/"+ mid;
+        //高压
+        DetectItem highPressureItem = new DetectItem();
+        highPressureItem.setValue(Float.valueOf(sys));
+        highPressureItem.setUnit("mmHg");
+        bloodPressureMeasuredData.setHighPressure(highPressureItem);
+
+        //低压
+        DetectItem lowPressureItem = new DetectItem();
+        lowPressureItem.setValue(Float.valueOf(dia));
+        lowPressureItem.setUnit("mmHg");
+        bloodPressureMeasuredData.setLowPressure(lowPressureItem);
+        OkHttpUtils.post().url(temUrl)
+                .addParams("data",gson.toJson(bloodPressureMeasuredData))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.e(TAG, "血压离线上传数据失败: " + e.getMessage());
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        if (response.indexOf(ErrorCode.SUCCESS) > 0) {
+                            Log.e(TAG, "血压离线上传数据成功: " + response);
+                        } else {
+                            Log.e(TAG, "血压离线上传数据异常: " + response);
+                        }
+                    }
+                });
+
+        dbManager.clearBpTable();
+    }
+
+    //血氧
+    private void pushBoData(String mid, String boData, String hr) {
+        DetectItem oxygenItem = new DetectItem();
+        oxygenItem.setValue(Float.valueOf(boData));
+        oxygenItem.setUnit("");
+        oxygenMeasuredData.setOxygen(oxygenItem);
+
+        //心率
+        DetectItem heartRateItem = new DetectItem();
+        heartRateItem.setValue(Float.valueOf(hr));
+        heartRateItem.setUnit("");
+        oxygenMeasuredData.setHeartRate(heartRateItem);
+        final String temUrl = InterfaceUrl.HEALTH_URL + sessonWithCode + "/m_id/" + mid;
+
+        OkHttpUtils.post().url(temUrl).addParams("data", gson.toJson(oxygenMeasuredData))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.e(TAG, "血氧离线上传数据失败: " + e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        if (response.indexOf(ErrorCode.SUCCESS) > 0) {
+                            Log.e(TAG, "血氧离线上传数据成功: " + response);
+                        } else {
+                            Log.e(TAG, "血氧离线上传数据异常: " + response);
+                        }
+                    }
+                });
+
+    }
+
+
+    //上传心电
+    private void pushEcgData(String mid, String rrmax, String rrmin, String mood, String hr, String hrv) {
+        mEcgMeasuredData.getHeartRate().setValue(Float.valueOf(hr));
+        mEcgMeasuredData.getHeartRate().setUnit("-");
+        mEcgMeasuredData.getPrmax().setValue(Float.valueOf(rrmax));
+        mEcgMeasuredData.getPrmax().setUnit("-");
+
+        mEcgMeasuredData.getPrmin().setValue(Float.valueOf(rrmin));
+        mEcgMeasuredData.getPrmin().setUnit("-");
+
+        mEcgMeasuredData.getHeartRateVariability().setValue(Float.valueOf(hrv));
+        mEcgMeasuredData.getHeartRateVariability().setUnit("-");
+
+        mEcgMeasuredData.getMood().setValue(Float.valueOf(mood));
+        mEcgMeasuredData.getMood().setUnit("-");
+
+        final String json = gson.toJson(mEcgMeasuredData);
+
+        final String temUrl = InterfaceUrl.HEALTH_URL + sessonWithCode + "/m_id/" + mid;
+        OkHttpUtils.post().url(temUrl)
+                .addParams("data", json)
+                .build().execute(new StringCallback() {
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                Log.e(TAG, "心电离线上传数据失败: " + e.getMessage());
+            }
+
+            @Override
+            public void onResponse(String response, int id) {
+                if (response.indexOf(ErrorCode.SUCCESS) > 0) {
+                    Log.e(TAG, "心电离线上传数据成功: " + response);
+                } else {
+                    Log.e(TAG, "心电离线上传数据异常: " + response);
+                }
+
+            }
+        });
+
+
+    }
+
+    //上传体温
+    private void pushTemData(String id, String temData) {
+        //体温
+        DetectItem temperatureItem = new DetectItem();
+        temperatureItem.setValue(Float.valueOf(temData));
+        temperatureItem.setUnit("℃");
+        temperatureMeasuredData.setTemperature(temperatureItem);
+        Log.e(TAG, "pushTemDataUrl:   =" + InterfaceUrl.HEALTH_URL + sessonWithCode + "/m_id/" + id);
+        OkHttpUtils.post().url(InterfaceUrl.HEALTH_URL + sessonWithCode + "/m_id/" + id)
+                .addParams("data", gson.toJson(temperatureMeasuredData))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.e(TAG, "体温离线上传数据失败: " + e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        if (response.indexOf(ErrorCode.SUCCESS) > 0) {
+                            Log.e(TAG, "体温离线上传数据成功: " + response);
+                        } else {
+                            Log.e(TAG, "体温离线上传数据异常: " + response);
+                        }
+                    }
+                });
     }
 
 
@@ -340,7 +565,7 @@ public class NetBroadcastReceiver extends BroadcastReceiver {
     }
 
     //上传尿液检测仪数据表中数据
-    private void pushBCData(String mid,String time, String uro, String bil, String glu, String ph, String leu, String bld, String ket, String pro, String nit, String sg, String vc) {
+    private void pushBCData(String mid, String time, String uro, String bil, String glu, String ph, String leu, String bld, String ket, String pro, String nit, String sg, String vc) {
 
         OkHttpUtils.post().url(InterfaceUrl.BCDATA_URL + sessonWithCode + "/m_id/" + mid)
                 .addParams("addtime", time)

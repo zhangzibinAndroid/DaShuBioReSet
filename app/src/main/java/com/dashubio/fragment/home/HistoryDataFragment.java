@@ -106,7 +106,7 @@ public class HistoryDataFragment extends BaseFragment {
                     Iterator<Integer> it = selectPosSet.iterator();
                     while (it.hasNext()) {
                         int pos = it.next();
-                        HistoryDataBean.HistoryData historyDataBean = healthDetectorFaherList.get(3);
+                        HistoryDataBean.HistoryData historyDataBean = healthDetectorFaherList.get(0);
                         healthDetectorChildrenListSecond = historyDataBean.getProject();
                         HistoryDataBean.HistoryData.ProjectBean bean = healthDetectorChildrenListSecond.get(pos);
                         SO_ID_ONE = bean.getId() + "";
@@ -256,11 +256,11 @@ public class HistoryDataFragment extends BaseFragment {
                         return;
                     }
                     //设置健康检测仪
-                    if (healthDetectorFaherList.size() >= 4) {
+                    if (healthDetectorFaherList.size() >= 1) {
                         tvHealthDetector.setVisibility(View.VISIBLE);
 
                         for (int i = 0; i < healthDetectorFaherList.size(); i++) {
-                            HistoryDataBean.HistoryData historyData = healthDetectorFaherList.get(3);
+                            HistoryDataBean.HistoryData historyData = healthDetectorFaherList.get(0);
                             healthDetectorChildrenList = historyData.getProject();
                             HistoryDataBean.HistoryData.AdeviceBean adevice = historyData.getAdevice();
                             tvHealthDetector.setText(adevice.getName());

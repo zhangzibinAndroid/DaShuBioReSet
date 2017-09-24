@@ -24,7 +24,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- Android6.0 蓝牙扫描才需要-->
     <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 

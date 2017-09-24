@@ -3,7 +3,6 @@ package com.dashubio.base;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.widget.BaseAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,5 +1,9 @@
 [
     {
+        "merged": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
+        "source": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\ic_launcher.png"
+    },
+    {
         "merged": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
         "source": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\ic_launcher.png"
     }

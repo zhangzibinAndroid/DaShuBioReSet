@@ -1,7 +1,23 @@
 [
     {
+        "merged": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\activity_main.xml",
+        "source": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\bundles\\debug\\res\\layout\\activity_main.xml"
+    },
+    {
         "merged": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\listitem_device.xml",
         "source": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\bundles\\debug\\res\\layout\\listitem_device.xml"
+    },
+    {
+        "merged": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\gatt_services_characteristics.xml",
+        "source": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\bundles\\debug\\res\\layout\\gatt_services_characteristics.xml"
+    },
+    {
+        "merged": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\listitem_device.xml",
+        "source": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\bundles\\debug\\res\\layout\\listitem_device.xml"
+    },
+    {
+        "merged": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\actionbar_indeterminate_progress.xml",
+        "source": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\bundles\\debug\\res\\layout\\actionbar_indeterminate_progress.xml"
     },
     {
         "merged": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\gatt_services_characteristics.xml",

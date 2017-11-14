@@ -6,5 +6,13 @@
     {
         "merged": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
         "source": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\tile.9.png",
+        "source": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\tile.9.png"
+    },
+    {
+        "merged": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
     }
 ]

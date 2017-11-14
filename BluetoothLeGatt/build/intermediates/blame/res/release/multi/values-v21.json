@@ -1,5 +1,31 @@
 [
     {
+        "outputFile": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v21\\values-v21.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 3,
+                    "endColumn": 12,
+                    "endOffset": 131
+                },
+                "from": {
+                    "file": "D:\\studio_workspace\\DaShuBioReSet\\BluetoothLeGatt\\src\\main\\res\\values-v21\\base-template-styles.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 695,
+                        "endLine": 20,
+                        "endColumn": 12,
+                        "endOffset": 772
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "E:\\as_project\\DaShuBioReSet\\BluetoothLeGatt\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v21\\values-v21.xml",
         "map": [
             {
